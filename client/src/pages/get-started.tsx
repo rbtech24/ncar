@@ -100,7 +100,7 @@ export default function GetStarted() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-white">
+      <section className="pt-32 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -120,7 +120,7 @@ export default function GetStarted() {
               <Button 
                 onClick={() => setShowParentForm(true)}
                 variant="outline" 
-                className="px-8 py-4 text-lg"
+                className="px-8 py-4 text-lg border-blue-600 text-blue-600 hover:bg-blue-50"
               >
                 <Users className="w-5 h-5 mr-2" />
                 Start as Parent
@@ -128,7 +128,7 @@ export default function GetStarted() {
               <Button 
                 onClick={() => setShowCoachForm(true)}
                 variant="outline" 
-                className="px-8 py-4 text-lg"
+                className="px-8 py-4 text-lg border-blue-600 text-blue-600 hover:bg-blue-50"
               >
                 <Trophy className="w-5 h-5 mr-2" />
                 Start as Coach
@@ -150,12 +150,12 @@ export default function GetStarted() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Athlete Card */}
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-blue-500">
+            <Card className="p-8 text-center hover:shadow-lg transition-all duration-200 cursor-pointer border-2 hover:border-blue-600 bg-white">
               <CardHeader>
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <User className="w-8 h-8 text-blue-600" />
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <User className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl mb-2">Student-Athletes</CardTitle>
+                <CardTitle className="text-2xl mb-2 text-gray-900">Student-Athletes</CardTitle>
                 <CardDescription className="text-gray-600">
                   Create your recruiting profile and get discovered by college coaches
                 </CardDescription>
@@ -163,19 +163,19 @@ export default function GetStarted() {
               <CardContent>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Build comprehensive athletic profile
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Upload highlight videos and stats
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Connect with college coaches
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Track recruiting progress
                   </div>
                 </div>
@@ -190,12 +190,12 @@ export default function GetStarted() {
             </Card>
 
             {/* Parent Card */}
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-green-500">
+            <Card className="p-8 text-center hover:shadow-lg transition-all duration-200 cursor-pointer border-2 hover:border-blue-600 bg-white">
               <CardHeader>
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl mb-2">Parents</CardTitle>
+                <CardTitle className="text-2xl mb-2 text-gray-900">Parents</CardTitle>
                 <CardDescription className="text-gray-600">
                   Support your child's recruiting journey with tools and insights
                 </CardDescription>
@@ -203,25 +203,25 @@ export default function GetStarted() {
               <CardContent>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Manage child's profile and progress
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Communicate with coaches
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Access recruiting resources
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Track scholarship opportunities
                   </div>
                 </div>
                 <Button 
                   onClick={() => setShowParentForm(true)}
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
                 >
                   Get Started as Parent
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -230,12 +230,12 @@ export default function GetStarted() {
             </Card>
 
             {/* Coach Card */}
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-orange-500">
+            <Card className="p-8 text-center hover:shadow-lg transition-all duration-200 cursor-pointer border-2 hover:border-blue-600 bg-white">
               <CardHeader>
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Trophy className="w-8 h-8 text-orange-600" />
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Trophy className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl mb-2">Coaches</CardTitle>
+                <CardTitle className="text-2xl mb-2 text-gray-900">Coaches</CardTitle>
                 <CardDescription className="text-gray-600">
                   Discover and recruit talented student-athletes for your program
                 </CardDescription>
@@ -243,25 +243,25 @@ export default function GetStarted() {
               <CardContent>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Search extensive athlete database
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     AI-powered recruiting tools
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Direct athlete communication
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <CheckCircle className="w-4 h-4 text-blue-600 mr-2" />
                     Recruiting analytics dashboard
                   </div>
                 </div>
                 <Button 
                   onClick={() => setShowCoachForm(true)}
-                  className="w-full bg-orange-600 hover:bg-orange-700"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
                 >
                   Get Started as Coach
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -286,16 +286,16 @@ export default function GetStarted() {
             {steps.map((step, index) => (
               <div key={step.number} className="text-center">
                 <div className="relative mb-8">
-                  <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-lg">
                     {step.number}
                   </div>
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 transform translate-x-8"></div>
+                    <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200 transform translate-x-8"></div>
                   )}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
                 <p className="text-gray-600 mb-2">{step.description}</p>
-                <Badge variant="outline" className="text-xs">
+                <Badge variant="outline" className="text-xs border-blue-600 text-blue-600">
                   {step.duration}
                 </Badge>
               </div>
