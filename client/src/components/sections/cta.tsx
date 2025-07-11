@@ -20,13 +20,13 @@ export default function CTA() {
       <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
           Ready to Get{" "}
-          <span className="text-orange-500">
+          <span className="text-orange-500 drop-shadow-lg">
             Recruited?
           </span>
         </h2>
-        <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
           Join thousands of student-athletes who have already found their perfect college match with NCAR. Your athletic dreams are just one click away.
         </p>
         
