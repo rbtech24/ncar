@@ -50,8 +50,12 @@ export default function Hero() {
             <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
               <div className="bg-white rounded-xl p-6 shadow-lg border border-neutral-100">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold text-lg">JD</span>
+                  <div className="w-14 h-14 rounded-full overflow-hidden shadow-md">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+                      alt="Jordan Davis profile"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="font-bold text-neutral-800 text-lg">Jordan Davis</h3>
