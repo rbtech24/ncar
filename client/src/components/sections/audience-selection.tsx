@@ -30,7 +30,11 @@ export default function AudienceSelection() {
             </div>
             <CardContent className="p-10 relative z-10">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Users className="text-white w-8 h-8" />
+                <img 
+                  src="/attached_assets/image_1752241518440.png" 
+                  alt="NCAR Logo" 
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 Student-Athletes
@@ -69,7 +73,11 @@ export default function AudienceSelection() {
             </div>
             <CardContent className="p-10 relative z-10">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Target className="text-white w-8 h-8" />
+                <img 
+                  src="/attached_assets/image_1752241518440.png" 
+                  alt="NCAR Logo" 
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 College Coaches
@@ -108,7 +116,11 @@ export default function AudienceSelection() {
             </div>
             <CardContent className="p-10 relative z-10">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <School className="text-white w-8 h-8" />
+                <img 
+                  src="/attached_assets/image_1752241518440.png" 
+                  alt="NCAR Logo" 
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 Clubs & High Schools
