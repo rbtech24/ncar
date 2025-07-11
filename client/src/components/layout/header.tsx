@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ncarLogo from "@assets/image_1752240108326.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,12 +17,12 @@ export default function Header() {
   return (
     <header className="bg-white border-b border-neutral-100 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <img 
-              src="/attached_assets/image_1752240108326.png" 
+              src={ncarLogo} 
               alt="NCAR Sports" 
-              className="h-8 w-auto"
+              className="h-16 w-auto"
             />
           </div>
           

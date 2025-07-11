@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import ncarLogo from "@assets/image_1752240108326.png";
 
 export default function Footer() {
   return (
@@ -7,9 +8,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <img 
-              src="/attached_assets/image_1752240108326.png" 
+              src={ncarLogo} 
               alt="NCAR Sports" 
-              className="h-10 w-auto mb-4"
+              className="h-20 w-auto mb-4"
             />
             <p className="text-neutral-300 mb-4 leading-relaxed">
               The complete recruiting platform connecting student-athletes with college opportunities nationwide.
