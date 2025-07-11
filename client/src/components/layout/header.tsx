@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "wouter";
 import AthleteRegistrationForm from "@/components/forms/athlete-registration-form";
+import LoginModal from "@/components/forms/login-modal";
 import ncarLogo from "@assets/image_1752240108326.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showAthleteForm, setShowAthleteForm] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -67,7 +69,11 @@ export default function Header() {
           </nav>
           
           <div className="hidden lg:flex items-center space-x-3">
-            <Button variant="ghost" className="text-neutral-700 hover:text-blue-600">
+            <Button 
+              variant="ghost" 
+              className="text-neutral-700 hover:text-blue-600"
+              onClick={() => setShowLoginModal(true)}
+            >
               Sign In
             </Button>
             <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200">
@@ -142,7 +148,13 @@ export default function Header() {
                   
                   {/* Footer Actions */}
                   <div className="p-6 border-t border-neutral-100 space-y-3">
-                    <Button className="bg-white hover:bg-gray-50 text-blue-600 border border-blue-200 w-full text-lg">
+                    <Button 
+                      className="bg-white hover:bg-gray-50 text-blue-600 border border-blue-200 w-full text-lg"
+                      onClick={() => {
+                        setShowLoginModal(true);
+                        setIsMenuOpen(false);
+                      }}
+                    >
                       Sign In
                     </Button>
                     <Button 
@@ -167,6 +179,12 @@ export default function Header() {
       {showAthleteForm && (
         <AthleteRegistrationForm onClose={() => setShowAthleteForm(false)} />
       )}
+      
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={showLoginModal} 
+        onClose={() => setShowLoginModal(false)} 
+      />
     </header>
   );
 }
