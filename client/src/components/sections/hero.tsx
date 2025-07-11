@@ -18,11 +18,11 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
-              Get recruited to your<br />
-              <span className="text-brand-accent">dream college</span>
+              The Future of<br />
+              <span className="text-brand-accent">Sports Recruiting</span>
             </h1>
             <p className="text-xl text-white/90 mb-8 max-w-xl">
-              The complete recruiting platform that connects student-athletes with college coaches nationwide. Build your profile, showcase your skills, and get discovered.
+              A modern sports recruiting website that revolutionizes how student-athletes connect with college programs. Advanced tools, real-time analytics, and direct coach communication.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border-0">
