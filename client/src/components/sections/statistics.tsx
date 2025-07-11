@@ -11,7 +11,7 @@ export default function Statistics() {
 
   const testimonials = [
     {
-      quote: "RecruitCore completely transformed my recruiting process. Within 3 months, I had offers from multiple Division I schools.",
+      quote: "NCAR completely transformed my recruiting process. Within 3 months, I had offers from multiple Division I schools.",
       author: "Sarah Johnson",
       details: "Soccer • University of Michigan",
       rating: 5
@@ -32,7 +32,7 @@ export default function Statistics() {
             Trusted by Thousands
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Join the growing community of student-athletes and coaches who have found success with RecruitCore.
+            Join the growing community of student-athletes and coaches who have found success with NCAR.
           </p>
         </div>
         

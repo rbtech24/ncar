@@ -17,7 +17,7 @@ export default function Hero() {
               <span className="text-neutral-800">recruiting happens</span>
             </h1>
             <p className="text-lg text-neutral-600 mb-8 max-w-xl leading-relaxed">
-              RecruitCore fuels millions of recruiting connections every year, helping student-athletes get recruited and play the sport they love in college. Ready to find your fit?
+              NCAR fuels millions of recruiting connections every year, helping student-athletes get recruited and play the sport they love in college. Ready to find your fit?
             </p>
             <div className="mb-8">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border-0">
