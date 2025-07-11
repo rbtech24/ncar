@@ -100,39 +100,53 @@ export default function GetStarted() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        {/* Sports Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2293&q=80')`
+          }}
+        />
+        
+        {/* Darker overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Get Started with <span className="text-blue-600">NCAR</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Join thousands of student-athletes who have successfully navigated the college recruiting process with our comprehensive platform and expert guidance.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={() => setShowAthleteForm(true)}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg"
-              >
-                <User className="w-5 h-5 mr-2" />
-                Start as Athlete
-              </Button>
-              <Button 
-                onClick={() => setShowParentForm(true)}
-                variant="outline" 
-                className="px-8 py-4 text-lg border-blue-600 text-blue-600 hover:bg-blue-50"
-              >
-                <Users className="w-5 h-5 mr-2" />
-                Start as Parent
-              </Button>
-              <Button 
-                onClick={() => setShowCoachForm(true)}
-                variant="outline" 
-                className="px-8 py-4 text-lg border-blue-600 text-blue-600 hover:bg-blue-50"
-              >
-                <Trophy className="w-5 h-5 mr-2" />
-                Start as Coach
-              </Button>
+            {/* Glass background container */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl border border-white/20 max-w-5xl mx-auto">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                Ready to Get Started with <span className="text-blue-600">NCAR</span>?
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Join thousands of student-athletes who have successfully navigated the college recruiting process with our comprehensive platform and expert guidance.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  onClick={() => setShowAthleteForm(true)}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg shadow-lg"
+                >
+                  <User className="w-5 h-5 mr-2" />
+                  Start as Athlete
+                </Button>
+                <Button 
+                  onClick={() => setShowParentForm(true)}
+                  variant="outline" 
+                  className="px-8 py-4 text-lg border-blue-600 text-blue-600 hover:bg-blue-50 shadow-lg bg-white/80"
+                >
+                  <Users className="w-5 h-5 mr-2" />
+                  Start as Parent
+                </Button>
+                <Button 
+                  onClick={() => setShowCoachForm(true)}
+                  variant="outline" 
+                  className="px-8 py-4 text-lg border-blue-600 text-blue-600 hover:bg-blue-50 shadow-lg bg-white/80"
+                >
+                  <Trophy className="w-5 h-5 mr-2" />
+                  Start as Coach
+                </Button>
+              </div>
             </div>
           </div>
         </div>
