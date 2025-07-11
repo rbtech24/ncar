@@ -7,11 +7,11 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-          alt="College football stadium" 
-          className="w-full h-full object-cover"
+          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          alt="Football player in action" 
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/30"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -25,11 +25,11 @@ export default function Hero() {
               The complete recruiting platform that connects student-athletes with college coaches nationwide. Build your profile, showcase your skills, and get discovered.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="btn-primary">
+              <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border-0">
                 Start Your Profile
               </Button>
-              <Button className="btn-secondary">
-                <Play className="w-4 h-4 mr-2" />
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-primary px-8 py-3 rounded-md font-medium text-base transition-all duration-200 flex items-center gap-2">
+                <Play className="w-4 h-4" />
                 Watch Demo
               </Button>
             </div>
@@ -47,43 +47,43 @@ export default function Hero() {
           </div>
           
           <div className="relative">
-            <div className="relative bg-neutral-100 rounded-2xl p-8 shadow-lg">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-neutral-200">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold">JD</span>
+            <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-neutral-100">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-white font-bold text-lg">JD</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Jordan Davis</h3>
-                    <p className="text-sm text-neutral-600">Basketball • Class of 2025</p>
+                    <h3 className="font-bold text-neutral-800 text-lg">Jordan Davis</h3>
+                    <p className="text-sm text-neutral-600 font-medium">Basketball • Class of 2025</p>
                   </div>
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-neutral-600">Profile Views</span>
-                    <span className="font-semibold text-brand-primary">1,247</span>
+                    <span className="text-sm text-neutral-600 font-medium">Profile Views</span>
+                    <span className="font-bold text-brand-primary text-lg">1,247</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-neutral-600">Coach Contacts</span>
-                    <span className="font-semibold text-brand-secondary">23</span>
+                    <span className="text-sm text-neutral-600 font-medium">Coach Contacts</span>
+                    <span className="font-bold text-brand-secondary text-lg">23</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-neutral-600">Scholarship Offers</span>
-                    <span className="font-semibold text-brand-accent">5</span>
+                    <span className="text-sm text-neutral-600 font-medium">Scholarship Offers</span>
+                    <span className="font-bold text-brand-accent text-lg">5</span>
                   </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-neutral-200">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-neutral-600">Profile Completion</span>
-                    <span className="text-sm font-semibold text-brand-secondary">94%</span>
+                <div className="mt-6 pt-4 border-t border-neutral-200">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-neutral-600 font-medium">Profile Completion</span>
+                    <span className="text-sm font-bold text-brand-secondary">94%</span>
                   </div>
-                  <div className="mt-2 w-full bg-neutral-200 rounded-full h-2">
-                    <div className="bg-brand-secondary h-2 rounded-full" style={{ width: '94%' }}></div>
+                  <div className="w-full bg-neutral-200 rounded-full h-3">
+                    <div className="bg-brand-secondary h-3 rounded-full shadow-sm" style={{ width: '94%' }}></div>
                   </div>
                 </div>
               </div>
               
-              <div className="absolute -top-4 -right-4 bg-brand-secondary text-white px-3 py-1 rounded-full text-sm font-medium">
+              <div className="absolute -top-3 -right-3 bg-brand-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
                 New Message!
               </div>
             </div>
