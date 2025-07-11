@@ -1,0 +1,69 @@
+Build me a homepage for a college sports recruiting platform.
+I want the look and feel inspired by SportsRecruits.com and NFHCARecruits.com, but unique to my brand.
+
+Design Style & CSS:
+
+Use a clean, modern, athletic look with plenty of white space.
+
+Main brand colors: Deep blue, bright accent (orange or green), and neutral backgrounds.
+
+Large, bold headlines in a sans-serif, collegiate-style font.
+
+Subheadings and body text are clear and easy to read.
+
+Use card layouts for features, benefits, and calls-to-action.
+
+Hero section with a gradient or athletic background pattern, featuring a bold headline, CTA button, and a mobile app mockup or athlete photo.
+
+Smooth, subtle hover effects on buttons and cards.
+
+Shadow and depth effects for cards (soft box-shadows, not harsh).
+
+Rounded corners (medium to large radius for cards and buttons).
+
+Clean, sticky navigation bar with logo on the left and login/signup buttons on the right.
+
+Responsive design—looks great on mobile and desktop.
+
+Accent lines or shapes (waves, diagonals, or geometric patterns) to add visual interest.
+
+Prominent CTAs ("Get Started", "Sign Up") in accent color.
+
+Footer with dark background, columns of links, and muted colors for secondary info.
+
+Sections to Include:
+
+Hero section with headline, subheadline, CTA, and app/athlete image.
+
+Audience selection cards: Student-Athletes, Coaches, Clubs/HS Staff.
+
+Features/benefits in horizontal or grid card layout, each with icon/image and short text.
+
+Social proof section: Stats, testimonials, or partner logos.
+
+"How it works" (step-by-step or journey cards for each audience type).
+
+Large "Get Started" CTA section above the footer.
+
+Footer with multiple link columns.
+
+Code Output:
+
+Use modern, semantic HTML5.
+
+CSS: Use either Tailwind CSS utility classes or hand-written CSS in a <style> block.
+
+Prioritize accessibility (good contrast, readable fonts, large click targets).
+
+Use placeholder images or SVGs for app mockups, athlete images, or icons.
+
+Name the primary CSS classes so it’s easy to customize later.
+
+Optional:
+
+Add a mobile menu for smaller screens.
+
+Subtle transition effects for section reveals or button clicks.
+
+Summary:
+Make it look and feel like a high-end, trustworthy, and energetic sports recruiting platform—fresh, easy to scan, conversion focused, and visually appealing for Gen Z athletes and coaches.
