@@ -19,9 +19,12 @@ export default function Hero() {
             <p className="text-lg text-neutral-600 mb-8 max-w-xl leading-relaxed">
               NCAR fuels millions of recruiting connections every year, helping student-athletes get recruited and play the sport they love in college. Ready to find your fit?
             </p>
-            <div className="mb-8">
+            <div className="mb-8 flex flex-col sm:flex-row gap-4">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border-0">
-                Join the network
+                Parents Start Here
+              </Button>
+              <Button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border border-blue-200">
+                Athletes Start Here
               </Button>
             </div>
           </div>
