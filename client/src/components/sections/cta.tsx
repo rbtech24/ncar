@@ -22,7 +22,7 @@ export default function CTA() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
           Ready to Get{" "}
-          <span className="text-blue-400 drop-shadow-lg">
+          <span className="text-blue-600 drop-shadow-lg">
             Recruited?
           </span>
         </h2>
