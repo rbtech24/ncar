@@ -33,7 +33,7 @@ export default function AudienceSelection() {
                 <img 
                   src="/attached_assets/image_1752241518440.png" 
                   alt="NCAR Logo" 
-                  className="w-10 h-10 object-contain"
+                  className="w-10 h-10 object-contain brightness-0 invert"
                 />
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
@@ -76,7 +76,7 @@ export default function AudienceSelection() {
                 <img 
                   src="/attached_assets/image_1752241518440.png" 
                   alt="NCAR Logo" 
-                  className="w-10 h-10 object-contain"
+                  className="w-10 h-10 object-contain brightness-0 invert"
                 />
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
@@ -119,7 +119,7 @@ export default function AudienceSelection() {
                 <img 
                   src="/attached_assets/image_1752241518440.png" 
                   alt="NCAR Logo" 
-                  className="w-10 h-10 object-contain"
+                  className="w-10 h-10 object-contain brightness-0 invert"
                 />
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
