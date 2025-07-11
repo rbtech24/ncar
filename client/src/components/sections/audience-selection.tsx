@@ -29,11 +29,6 @@ export default function AudienceSelection() {
               <Trophy className="w-8 h-8 text-blue-600" />
             </div>
             <CardContent className="p-10 relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <svg width="32" height="32" viewBox="0 0 100 100" className="text-white">
-                  <text x="50" y="70" textAnchor="middle" fontSize="70" fontFamily="Arial, sans-serif" fontWeight="bold" fill="currentColor">N</text>
-                </svg>
-              </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 Student-Athletes
               </h3>
@@ -70,11 +65,6 @@ export default function AudienceSelection() {
               <Search className="w-8 h-8 text-blue-600" />
             </div>
             <CardContent className="p-10 relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <svg width="32" height="32" viewBox="0 0 100 100" className="text-white">
-                  <text x="50" y="70" textAnchor="middle" fontSize="70" fontFamily="Arial, sans-serif" fontWeight="bold" fill="currentColor">N</text>
-                </svg>
-              </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 College Coaches
               </h3>
@@ -111,11 +101,6 @@ export default function AudienceSelection() {
               <Users2 className="w-8 h-8 text-blue-600" />
             </div>
             <CardContent className="p-10 relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <svg width="32" height="32" viewBox="0 0 100 100" className="text-white">
-                  <text x="50" y="70" textAnchor="middle" fontSize="70" fontFamily="Arial, sans-serif" fontWeight="bold" fill="currentColor">N</text>
-                </svg>
-              </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 Clubs & High Schools
               </h3>
