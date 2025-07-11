@@ -45,7 +45,7 @@ export default function HowItWorks() {
         <div className="text-center mb-20">
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             How It{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <span className="text-blue-600">
               Works
             </span>
           </h2>
@@ -119,7 +119,7 @@ export default function HowItWorks() {
         
         {/* Call to action */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
             <div className="flex items-center gap-2">
               <Play className="w-5 h-5" />
               <span>Start Your Journey Today</span>
