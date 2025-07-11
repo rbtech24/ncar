@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack React application for a college sports recruiting platform called "RecruitCore". The application is built with a modern tech stack including React (frontend), Express.js (backend), PostgreSQL (database), and uses Drizzle ORM for database operations. The platform aims to connect student-athletes with college coaches and recruiting opportunities.
+This is a full-stack React application for a college sports recruiting platform called "NCAR". The application is built with a modern tech stack including React (frontend), Express.js (backend), PostgreSQL (database), and uses Drizzle ORM for database operations. The platform aims to connect student-athletes with college coaches and recruiting opportunities.
 
 ## Recent Changes
 
