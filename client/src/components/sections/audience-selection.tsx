@@ -17,8 +17,14 @@ export default function AudienceSelection() {
         
         <div className="grid md:grid-cols-3 gap-8">
           {/* Student Athletes Card */}
-          <Card className="card-feature text-left group hover:border-brand-primary transition-all duration-200">
-            <CardContent className="p-8">
+          <Card className="card-feature text-left group hover:border-brand-primary transition-all duration-200 relative overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-15 transition-opacity duration-200"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`
+              }}
+            />
+            <CardContent className="p-8 relative z-10">
               <div className="w-12 h-12 bg-brand-primary rounded-lg flex items-center justify-center mb-6">
                 <Users className="text-white w-6 h-6" />
               </div>
@@ -34,8 +40,14 @@ export default function AudienceSelection() {
           </Card>
           
           {/* Coaches Card */}
-          <Card className="card-feature text-left group hover:border-brand-secondary transition-all duration-200">
-            <CardContent className="p-8">
+          <Card className="card-feature text-left group hover:border-brand-secondary transition-all duration-200 relative overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-15 transition-opacity duration-200"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1577223625816-7546f13df25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`
+              }}
+            />
+            <CardContent className="p-8 relative z-10">
               <div className="w-12 h-12 bg-brand-secondary rounded-lg flex items-center justify-center mb-6">
                 <Target className="text-white w-6 h-6" />
               </div>
@@ -51,8 +63,14 @@ export default function AudienceSelection() {
           </Card>
           
           {/* Clubs/HS Staff Card */}
-          <Card className="card-feature text-left group hover:border-brand-accent transition-all duration-200">
-            <CardContent className="p-8">
+          <Card className="card-feature text-left group hover:border-brand-accent transition-all duration-200 relative overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-15 transition-opacity duration-200"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1594736797933-d0f06d28d52d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`
+              }}
+            />
+            <CardContent className="p-8 relative z-10">
               <div className="w-12 h-12 bg-brand-accent rounded-lg flex items-center justify-center mb-6">
                 <School className="text-neutral-800 w-6 h-6" />
               </div>
