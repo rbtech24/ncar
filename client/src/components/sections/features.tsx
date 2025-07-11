@@ -52,7 +52,7 @@ export default function Features() {
       />
       
       {/* Light overlay for readability */}
-      <div className="absolute inset-0 bg-white/85"></div>
+      <div className="absolute inset-0 bg-white/60"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-20">
