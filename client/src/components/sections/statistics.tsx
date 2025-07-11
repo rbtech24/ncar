@@ -4,9 +4,9 @@ import { Quote, Star } from "lucide-react";
 export default function Statistics() {
   const stats = [
     { number: "15,000+", label: "Student-Athletes", color: "text-blue-600" },
-    { number: "2,500+", label: "College Coaches", color: "text-green-600" },
-    { number: "8,200+", label: "Commitments", color: "text-orange-600" },
-    { number: "$45M+", label: "Scholarships Awarded", color: "text-purple-600" }
+    { number: "2,500+", label: "College Coaches", color: "text-blue-600" },
+    { number: "8,200+", label: "Commitments", color: "text-blue-600" },
+    { number: "$45M+", label: "Scholarships Awarded", color: "text-blue-600" }
   ];
 
   const testimonials = [
@@ -83,30 +83,33 @@ export default function Statistics() {
           ))}
         </div>
         
-        {/* Reviews Section */}
-        <div className="text-center mb-12">
-          <h3 className="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            What Our Community Says
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Real stories from student-athletes and coaches who've achieved their goals with NCAR.
-          </p>
-        </div>
-        
-        {/* Scrolling Reviews */}
-        <div className="relative overflow-hidden rounded-3xl bg-gray-50 py-8">
-          <div className="flex animate-scroll space-x-6">
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg min-w-[300px] flex-shrink-0 p-6 border border-gray-100">
+        {/* What Our Community Says */}
+        <div className="bg-slate-50 rounded-3xl p-12 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full opacity-20 transform translate-x-32 -translate-y-32"></div>
+          
+          <div className="text-center mb-12 relative z-10">
+            <h3 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What Our Community Says
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Real success stories from student-athletes and coaches across the country.
+            </p>
+          </div>
+          
+          {/* Review Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+            {testimonials.slice(0, 6).map((testimonial, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                 {/* Stars */}
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-black stroke-1" />
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-gray-800 stroke-1" />
                   ))}
                 </div>
                 
                 {/* Quote */}
-                <p className="text-gray-700 mb-6 text-base leading-relaxed font-medium">
+                <p className="text-gray-700 mb-6 text-sm leading-relaxed">
                   "{testimonial.quote}"
                 </p>
                 
@@ -118,7 +121,7 @@ export default function Statistics() {
                     </span>
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900 text-sm">{testimonial.author}</div>
+                    <div className="font-semibold text-gray-900 text-sm">{testimonial.author}</div>
                     <div className="text-xs text-gray-500">{testimonial.details}</div>
                   </div>
                 </div>
