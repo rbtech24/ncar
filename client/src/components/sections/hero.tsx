@@ -70,52 +70,60 @@ export default function Hero() {
           </div>
         </div>
         
-        {/* Scrolling Statistics Bar */}
+        {/* Live User Activity Ticker */}
         <div className="mt-16 bg-black/80 backdrop-blur-sm rounded-2xl py-4 text-white overflow-hidden">
           <div className="flex animate-scroll">
             <div className="flex items-center gap-16 px-8 whitespace-nowrap">
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">74k+</div>
-                <span className="text-white/90 text-sm">Athlete commitments</span>
+                <div className="bg-green-500 px-3 py-1 rounded-full text-sm font-bold">LIVE</div>
+                <span className="text-white/90 text-sm">32 new profiles created today</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">17k+</div>
-                <span className="text-white/90 text-sm">Roster needs published</span>
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">15</div>
+                <span className="text-white/90 text-sm">coaches actively browsing right now</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">21k+</div>
-                <span className="text-white/90 text-sm">Athlete views</span>
+                <div className="bg-orange-500 px-3 py-1 rounded-full text-sm font-bold">7</div>
+                <span className="text-white/90 text-sm">athletes just updated their highlight videos</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">2.5k+</div>
-                <span className="text-white/90 text-sm">College coaches</span>
+                <div className="bg-purple-600 px-3 py-1 rounded-full text-sm font-bold">3</div>
+                <span className="text-white/90 text-sm">commitments announced this week</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">85%</div>
-                <span className="text-white/90 text-sm">Success rate</span>
+                <div className="bg-cyan-500 px-3 py-1 rounded-full text-sm font-bold">24</div>
+                <span className="text-white/90 text-sm">new coach connections made today</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="bg-red-500 px-3 py-1 rounded-full text-sm font-bold">HOT</div>
+                <span className="text-white/90 text-sm">Basketball recruiting activity spiking</span>
               </div>
             </div>
             {/* Duplicate for seamless loop */}
             <div className="flex items-center gap-16 px-8 whitespace-nowrap">
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">74k+</div>
-                <span className="text-white/90 text-sm">Athlete commitments</span>
+                <div className="bg-green-500 px-3 py-1 rounded-full text-sm font-bold">LIVE</div>
+                <span className="text-white/90 text-sm">32 new profiles created today</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">17k+</div>
-                <span className="text-white/90 text-sm">Roster needs published</span>
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">15</div>
+                <span className="text-white/90 text-sm">coaches actively browsing right now</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">21k+</div>
-                <span className="text-white/90 text-sm">Athlete views</span>
+                <div className="bg-orange-500 px-3 py-1 rounded-full text-sm font-bold">7</div>
+                <span className="text-white/90 text-sm">athletes just updated their highlight videos</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">2.5k+</div>
-                <span className="text-white/90 text-sm">College coaches</span>
+                <div className="bg-purple-600 px-3 py-1 rounded-full text-sm font-bold">3</div>
+                <span className="text-white/90 text-sm">commitments announced this week</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">85%</div>
-                <span className="text-white/90 text-sm">Success rate</span>
+                <div className="bg-cyan-500 px-3 py-1 rounded-full text-sm font-bold">24</div>
+                <span className="text-white/90 text-sm">new coach connections made today</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="bg-red-500 px-3 py-1 rounded-full text-sm font-bold">HOT</div>
+                <span className="text-white/90 text-sm">Basketball recruiting activity spiking</span>
               </div>
             </div>
           </div>
