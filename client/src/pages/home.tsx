@@ -9,7 +9,7 @@ import CTA from "@/components/sections/cta";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-neutral-light">
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
         <Hero />

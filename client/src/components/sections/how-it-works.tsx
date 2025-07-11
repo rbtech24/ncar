@@ -1,58 +1,60 @@
+import { ArrowRight } from "lucide-react";
+
 export default function HowItWorks() {
   const steps = [
     {
       number: "1",
       title: "Create Your Profile",
-      description: "Build a comprehensive profile with your athletic achievements, academic records, and video highlights.",
-      image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
-      alt: "College athlete creating profile",
-      bgColor: "bg-ncaa-blue"
+      description: "Build a comprehensive recruiting profile with your athletic achievements, academic records, and highlight videos in minutes.",
+      bgColor: "bg-brand-primary"
     },
     {
       number: "2",
       title: "Connect with Coaches",
-      description: "Get discovered by college coaches or reach out directly to programs that match your goals.",
-      image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
-      alt: "Sports recruiting coaches meeting",
-      bgColor: "bg-accent-orange"
+      description: "Get discovered by college coaches actively searching for talent, or reach out directly to programs that interest you.",
+      bgColor: "bg-brand-secondary"
     },
     {
       number: "3",
       title: "Achieve Your Goals",
-      description: "Secure your spot on a college team and take your athletic career to the next level.",
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
-      alt: "Athletic team celebration",
-      bgColor: "bg-accent-green"
+      description: "Secure scholarship offers and commitments to your dream college programs through our proven recruiting process.",
+      bgColor: "bg-brand-accent"
     }
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-neutral-light">
+    <section id="how-it-works" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-ncaa-blue mb-4">
-            How RecruitCore Works
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-neutral-800 mb-4">
+            How It Works
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Get started in minutes with our streamlined process designed for student-athletes and coaches.
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            Our streamlined process makes college recruiting simple and effective for student-athletes.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 relative">
           {steps.map((step, index) => (
-            <div key={index} className="text-center">
-              <div className={`w-16 h-16 ${step.bgColor} rounded-full flex items-center justify-center mx-auto mb-6`}>
-                <span className="text-white font-bold text-xl">{step.number}</span>
+            <div key={index} className="relative">
+              <div className="text-center">
+                <div className={`w-16 h-16 ${step.bgColor} rounded-full flex items-center justify-center mx-auto mb-6`}>
+                  <span className={`font-bold text-xl ${step.bgColor === 'bg-brand-accent' ? 'text-neutral-800' : 'text-white'}`}>
+                    {step.number}
+                  </span>
+                </div>
+                <h3 className="font-heading text-xl font-bold text-neutral-800 mb-4">{step.title}</h3>
+                <p className="text-neutral-600 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="font-heading text-xl font-bold text-ncaa-blue mb-4">{step.title}</h3>
-              <p className="text-gray-600 mb-6">
-                {step.description}
-              </p>
-              <img 
-                src={step.image} 
-                alt={step.alt} 
-                className="rounded-xl shadow-lg w-full h-auto max-h-64 object-cover"
-              />
+              
+              {/* Arrow connector - hidden on mobile, visible on desktop */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-8 left-full transform -translate-x-1/2 translate-x-8">
+                  <ArrowRight className="w-8 h-8 text-neutral-300" />
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(212, 17%, 17%);
+  --foreground: hsl(215, 25%, 27%);
   --muted: hsl(210, 40%, 96%);
   --muted-foreground: hsl(215, 16%, 47%);
   --popover: hsl(0, 0%, 100%);
@@ -13,7 +15,7 @@
   --card-foreground: hsl(212, 17%, 17%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(207, 100%, 36%);
+  --primary: hsl(210, 100%, 40%);
   --primary-foreground: hsl(210, 40%, 98%);
   --secondary: hsl(210, 40%, 96%);
   --secondary-foreground: hsl(222, 84%, 5%);
@@ -24,16 +26,24 @@
   --ring: hsl(212, 17%, 17%);
   --radius: 0.5rem;
   
-  /* NCAA Brand Colors */
-  --ncaa-blue: hsl(207, 100%, 36%);
-  --neutral-light: hsl(210, 11%, 97%);
-  --neutral-dark: hsl(212, 17%, 17%);
-  --accent-orange: hsl(20, 100%, 60%);
-  --accent-green: hsl(154, 59%, 48%);
+  /* SportsRecruits-inspired Brand Colors */
+  --brand-primary: hsl(210, 100%, 40%);
+  --brand-secondary: hsl(139, 69%, 43%);
+  --brand-accent: hsl(45, 100%, 51%);
+  --neutral-50: hsl(0, 0%, 98%);
+  --neutral-100: hsl(220, 14%, 96%);
+  --neutral-200: hsl(220, 13%, 91%);
+  --neutral-300: hsl(216, 12%, 84%);
+  --neutral-400: hsl(218, 11%, 65%);
+  --neutral-500: hsl(220, 9%, 46%);
+  --neutral-600: hsl(215, 14%, 34%);
+  --neutral-700: hsl(215, 25%, 27%);
+  --neutral-800: hsl(217, 33%, 17%);
+  --neutral-900: hsl(222, 84%, 5%);
   
   /* Typography */
-  --font-heading: 'Montserrat', 'Oswald', 'Arial Black', Arial, sans-serif;
-  --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --font-heading: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
 .dark {
@@ -66,75 +76,111 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: var(--font-body);
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    line-height: 1.2;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-[hsl(var(--ncaa-blue))] text-white hover:bg-[hsl(var(--ncaa-blue))]/90 
-           px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200
-           shadow-lg hover:shadow-xl;
+    @apply bg-[hsl(var(--brand-primary))] text-white hover:bg-[hsl(var(--brand-primary))]/90 
+           px-8 py-3 rounded-md font-medium text-base transition-all duration-200
+           shadow-sm hover:shadow-md border-0;
   }
 
   .btn-secondary {
-    @apply border-2 border-white text-white hover:bg-white hover:text-[hsl(var(--ncaa-blue))]
-           px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200;
+    @apply border border-[hsl(var(--neutral-300))] text-[hsl(var(--neutral-700))] hover:bg-[hsl(var(--neutral-50))]
+           px-8 py-3 rounded-md font-medium text-base transition-all duration-200
+           bg-white hover:border-[hsl(var(--neutral-400))];
   }
 
-  .btn-accent-orange {
-    @apply bg-[hsl(var(--accent-orange))] text-white hover:bg-[hsl(var(--accent-orange))]/90
-           px-6 py-3 rounded-full font-semibold transition-all duration-200;
+  .btn-success {
+    @apply bg-[hsl(var(--brand-secondary))] text-white hover:bg-[hsl(var(--brand-secondary))]/90
+           px-8 py-3 rounded-md font-medium text-base transition-all duration-200
+           shadow-sm hover:shadow-md border-0;
   }
 
-  .btn-accent-green {
-    @apply bg-[hsl(var(--accent-green))] text-white hover:bg-[hsl(var(--accent-green))]/90
-           px-6 py-3 rounded-full font-semibold transition-all duration-200;
+  .btn-accent {
+    @apply bg-[hsl(var(--brand-accent))] text-[hsl(var(--neutral-800))] hover:bg-[hsl(var(--brand-accent))]/90
+           px-8 py-3 rounded-md font-medium text-base transition-all duration-200
+           shadow-sm hover:shadow-md border-0;
+  }
+
+  .card-clean {
+    @apply bg-white rounded-lg shadow-sm border border-[hsl(var(--neutral-200))] 
+           hover:shadow-md transition-all duration-200 p-6;
   }
 
   .card-feature {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 
-           hover:-translate-y-2 p-8 border border-gray-100;
+    @apply bg-white rounded-lg shadow-sm border border-[hsl(var(--neutral-200))] 
+           hover:shadow-md transition-all duration-200 p-8;
   }
 
-  .text-ncaa-blue {
-    color: hsl(var(--ncaa-blue));
+  .text-brand-primary {
+    color: hsl(var(--brand-primary));
   }
 
-  .bg-ncaa-blue {
-    background-color: hsl(var(--ncaa-blue));
+  .bg-brand-primary {
+    background-color: hsl(var(--brand-primary));
   }
 
-  .text-accent-orange {
-    color: hsl(var(--accent-orange));
+  .text-brand-secondary {
+    color: hsl(var(--brand-secondary));
   }
 
-  .bg-accent-orange {
-    background-color: hsl(var(--accent-orange));
+  .bg-brand-secondary {
+    background-color: hsl(var(--brand-secondary));
   }
 
-  .text-accent-green {
-    color: hsl(var(--accent-green));
+  .text-brand-accent {
+    color: hsl(var(--brand-accent));
   }
 
-  .bg-accent-green {
-    background-color: hsl(var(--accent-green));
+  .bg-brand-accent {
+    background-color: hsl(var(--brand-accent));
   }
 
-  .bg-neutral-light {
-    background-color: hsl(var(--neutral-light));
+  .text-neutral-500 {
+    color: hsl(var(--neutral-500));
   }
 
-  .bg-neutral-dark {
-    background-color: hsl(var(--neutral-dark));
+  .text-neutral-600 {
+    color: hsl(var(--neutral-600));
   }
 
-  .text-neutral-dark {
-    color: hsl(var(--neutral-dark));
+  .text-neutral-700 {
+    color: hsl(var(--neutral-700));
+  }
+
+  .text-neutral-800 {
+    color: hsl(var(--neutral-800));
+  }
+
+  .bg-neutral-50 {
+    background-color: hsl(var(--neutral-50));
+  }
+
+  .bg-neutral-100 {
+    background-color: hsl(var(--neutral-100));
+  }
+
+  .bg-neutral-800 {
+    background-color: hsl(var(--neutral-800));
+  }
+
+  .bg-neutral-900 {
+    background-color: hsl(var(--neutral-900));
+  }
+
+  .border-neutral-200 {
+    border-color: hsl(var(--neutral-200));
+  }
+
+  .border-neutral-300 {
+    border-color: hsl(var(--neutral-300));
   }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');

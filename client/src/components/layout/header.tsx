@@ -14,11 +14,11 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-ncaa-blue text-white sticky top-0 z-50 shadow-lg">
+    <header className="bg-white border-b border-neutral-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="font-heading text-2xl font-bold tracking-wide">
+            <div className="font-heading text-xl font-bold text-brand-primary">
               RecruitCore
             </div>
           </div>
@@ -27,35 +27,35 @@ export default function Header() {
           <nav className="hidden md:flex space-x-8">
             <button
               onClick={() => scrollToSection("features")}
-              className="text-white hover:text-accent-orange transition-colors duration-200 font-medium"
+              className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium"
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection("how-it-works")}
-              className="text-white hover:text-accent-orange transition-colors duration-200 font-medium"
+              className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium"
             >
               How It Works
             </button>
             <button
-              onClick={() => scrollToSection("about")}
-              className="text-white hover:text-accent-orange transition-colors duration-200 font-medium"
+              onClick={() => scrollToSection("pricing")}
+              className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium"
             >
-              About
+              Pricing
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-white hover:text-accent-orange transition-colors duration-200 font-medium"
+              className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium"
             >
               Contact
             </button>
           </nav>
           
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-white hover:text-accent-orange">
+          <div className="hidden md:flex items-center space-x-3">
+            <Button variant="ghost" className="text-neutral-600 hover:text-brand-primary">
               Sign In
             </Button>
-            <Button className="btn-accent-orange">
+            <Button className="btn-primary">
               Get Started
             </Button>
           </div>
@@ -66,7 +66,7 @@ export default function Header() {
               variant="ghost"
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white"
+              className="text-neutral-600"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
@@ -75,37 +75,37 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-blue-700">
+          <div className="md:hidden py-4 border-t border-neutral-200">
             <nav className="flex flex-col space-y-4">
               <button
                 onClick={() => scrollToSection("features")}
-                className="text-white hover:text-accent-orange transition-colors duration-200 font-medium text-left"
+                className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium text-left"
               >
                 Features
               </button>
               <button
                 onClick={() => scrollToSection("how-it-works")}
-                className="text-white hover:text-accent-orange transition-colors duration-200 font-medium text-left"
+                className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium text-left"
               >
                 How It Works
               </button>
               <button
-                onClick={() => scrollToSection("about")}
-                className="text-white hover:text-accent-orange transition-colors duration-200 font-medium text-left"
+                onClick={() => scrollToSection("pricing")}
+                className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium text-left"
               >
-                About
+                Pricing
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-white hover:text-accent-orange transition-colors duration-200 font-medium text-left"
+                className="text-neutral-600 hover:text-brand-primary transition-colors duration-200 font-medium text-left"
               >
                 Contact
               </button>
               <div className="pt-4 space-y-2">
-                <Button variant="ghost" className="text-white hover:text-accent-orange w-full justify-start">
+                <Button variant="ghost" className="text-neutral-600 hover:text-brand-primary w-full justify-start">
                   Sign In
                 </Button>
-                <Button className="btn-accent-orange w-full">
+                <Button className="btn-primary w-full">
                   Get Started
                 </Button>
               </div>

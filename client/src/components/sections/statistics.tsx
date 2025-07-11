@@ -1,36 +1,38 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 export default function Statistics() {
   const stats = [
-    { number: "15,000+", label: "Student-Athletes", color: "text-accent-orange" },
-    { number: "2,500+", label: "College Coaches", color: "text-accent-green" },
-    { number: "8,200+", label: "Commitments", color: "text-ncaa-blue" },
-    { number: "$45M+", label: "Scholarships Awarded", color: "text-accent-orange" }
+    { number: "15,000+", label: "Student-Athletes", color: "text-brand-primary" },
+    { number: "2,500+", label: "College Coaches", color: "text-brand-secondary" },
+    { number: "8,200+", label: "Commitments", color: "text-brand-accent" },
+    { number: "$45M+", label: "Scholarships Awarded", color: "text-brand-primary" }
   ];
 
   const testimonials = [
     {
-      quote: "RecruitCore helped me connect with my dream school. The platform made the recruiting process so much easier and more organized.",
+      quote: "RecruitCore completely transformed my recruiting process. Within 3 months, I had offers from multiple Division I schools.",
       author: "Sarah Johnson",
-      details: "Soccer • University of Michigan"
+      details: "Soccer • University of Michigan",
+      rating: 5
     },
     {
-      quote: "As a coach, RecruitCore has revolutionized how we identify and evaluate talent. The video features are outstanding.",
+      quote: "The video platform and analytics helped me identify top talent efficiently. It's become an essential tool for our program.",
       author: "Coach Mike Thompson",
-      details: "Basketball • Duke University"
+      details: "Basketball • Duke University",
+      rating: 5
     }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-ncaa-blue mb-4">
-            Proven Results
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-neutral-800 mb-4">
+            Trusted by Thousands
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our platform has helped thousands of student-athletes achieve their college sports dreams.
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            Join the growing community of student-athletes and coaches who have found success with RecruitCore.
           </p>
         </div>
         
@@ -40,25 +42,32 @@ export default function Statistics() {
               <div className={`font-heading text-4xl md:text-5xl font-bold ${stat.color} mb-2`}>
                 {stat.number}
               </div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-neutral-600 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-neutral-light">
+            <Card key={index} className="bg-white shadow-sm border border-neutral-200">
               <CardContent className="p-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-ncaa-blue rounded-full flex-shrink-0 flex items-center justify-center">
-                    <Quote className="text-white w-6 h-6" />
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-brand-accent text-brand-accent" />
+                  ))}
+                </div>
+                <p className="text-neutral-700 mb-6 text-lg leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center">
+                    <span className="text-white font-semibold text-sm">
+                      {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    </span>
                   </div>
                   <div>
-                    <p className="text-gray-700 mb-4 italic">
-                      "{testimonial.quote}"
-                    </p>
-                    <div className="font-semibold text-ncaa-blue">{testimonial.author}</div>
-                    <div className="text-sm text-gray-500">{testimonial.details}</div>
+                    <div className="font-semibold text-neutral-800">{testimonial.author}</div>
+                    <div className="text-sm text-neutral-500">{testimonial.details}</div>
                   </div>
                 </div>
               </CardContent>
