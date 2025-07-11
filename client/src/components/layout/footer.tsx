@@ -6,7 +6,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <div className="font-heading text-xl font-bold mb-4 text-brand-primary">RecruitCore</div>
+            <img 
+              src="/attached_assets/image_1752240108326.png" 
+              alt="NCAR Sports" 
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-neutral-300 mb-4 leading-relaxed">
               The complete recruiting platform connecting student-athletes with college opportunities nationwide.
             </p>
@@ -59,7 +63,7 @@ export default function Footer() {
         
         <div className="border-t border-neutral-700 mt-12 pt-8 text-center">
           <p className="text-neutral-400 text-sm">
-            © 2024 RecruitCore. All rights reserved. | 
+            © 2024 NCAR Sports. All rights reserved. | 
             <a href="#" className="hover:text-white transition-colors duration-200 ml-2">Terms of Service</a> | 
             <a href="#" className="hover:text-white transition-colors duration-200 ml-2">Privacy Policy</a>
           </p>
