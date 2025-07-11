@@ -14,7 +14,7 @@ export default function Hero() {
           <div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-neutral-800">
               This is where<br />
-              <span className="text-neutral-800">recruiting happens</span>
+              <span className="text-blue-600">recruiting happens</span>
             </h1>
             <p className="text-lg text-neutral-600 mb-8 max-w-xl leading-relaxed">
               NCAR fuels millions of recruiting connections every year, helping student-athletes get recruited and play the sport they love in college. Ready to find your fit?
