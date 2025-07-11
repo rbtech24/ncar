@@ -68,59 +68,51 @@ export default function Hero() {
         </div>
         
         {/* Scrolling Statistics Bar */}
-        <div className="mt-16 bg-black/80 backdrop-blur-sm rounded-2xl p-6 text-white overflow-hidden">
-          <div className="flex animate-scroll whitespace-nowrap">
-            <div className="flex items-center gap-20 min-w-full px-4">
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">74k+</div>
-                <span className="text-white/90 text-sm">Athlete commitments logged</span>
+        <div className="mt-16 bg-black/80 backdrop-blur-sm rounded-2xl py-4 text-white overflow-hidden">
+          <div className="flex animate-scroll">
+            <div className="flex items-center gap-16 px-8 whitespace-nowrap">
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">74k+</div>
+                <span className="text-white/90 text-sm">Athlete commitments</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">17k+</div>
-                <span className="text-white/90 text-sm">Roster Needs published by colleges</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">17k+</div>
+                <span className="text-white/90 text-sm">Roster needs published</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">21k+</div>
-                <span className="text-white/90 text-sm">Athlete views by colleges</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">21k+</div>
+                <span className="text-white/90 text-sm">Athlete views</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">2.5k+</div>
-                <span className="text-white/90 text-sm">College coaches active</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">2.5k+</div>
+                <span className="text-white/90 text-sm">College coaches</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">1.2k+</div>
-                <span className="text-white/90 text-sm">High school programs</span>
-              </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">85%</div>
-                <span className="text-white/90 text-sm">Success rate for placements</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">85%</div>
+                <span className="text-white/90 text-sm">Success rate</span>
               </div>
             </div>
             {/* Duplicate for seamless loop */}
-            <div className="flex items-center gap-20 min-w-full px-4">
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">74k+</div>
-                <span className="text-white/90 text-sm">Athlete commitments logged</span>
+            <div className="flex items-center gap-16 px-8 whitespace-nowrap">
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">74k+</div>
+                <span className="text-white/90 text-sm">Athlete commitments</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">17k+</div>
-                <span className="text-white/90 text-sm">Roster Needs published by colleges</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">17k+</div>
+                <span className="text-white/90 text-sm">Roster needs published</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">21k+</div>
-                <span className="text-white/90 text-sm">Athlete views by colleges</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">21k+</div>
+                <span className="text-white/90 text-sm">Athlete views</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">2.5k+</div>
-                <span className="text-white/90 text-sm">College coaches active</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">2.5k+</div>
+                <span className="text-white/90 text-sm">College coaches</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">1.2k+</div>
-                <span className="text-white/90 text-sm">High school programs</span>
-              </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-600 px-4 py-2 rounded-full text-sm font-bold">85%</div>
-                <span className="text-white/90 text-sm">Success rate for placements</span>
+              <div className="flex items-center gap-3">
+                <div className="bg-blue-600 px-3 py-1 rounded-full text-sm font-bold">85%</div>
+                <span className="text-white/90 text-sm">Success rate</span>
               </div>
             </div>
           </div>
