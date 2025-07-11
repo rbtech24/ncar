@@ -30,11 +30,9 @@ export default function AudienceSelection() {
             </div>
             <CardContent className="p-10 relative z-10">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <img 
-                  src="/attached_assets/image_1752241518440.png" 
-                  alt="NCAR Logo" 
-                  className="w-10 h-10 object-contain brightness-0 invert"
-                />
+                <svg width="32" height="32" viewBox="0 0 100 100" className="text-white">
+                  <text x="50" y="70" textAnchor="middle" fontSize="70" fontFamily="Arial, sans-serif" fontWeight="bold" fill="currentColor">N</text>
+                </svg>
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 Student-Athletes
@@ -73,11 +71,9 @@ export default function AudienceSelection() {
             </div>
             <CardContent className="p-10 relative z-10">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <img 
-                  src="/attached_assets/image_1752241518440.png" 
-                  alt="NCAR Logo" 
-                  className="w-10 h-10 object-contain brightness-0 invert"
-                />
+                <svg width="32" height="32" viewBox="0 0 100 100" className="text-white">
+                  <text x="50" y="70" textAnchor="middle" fontSize="70" fontFamily="Arial, sans-serif" fontWeight="bold" fill="currentColor">N</text>
+                </svg>
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 College Coaches
@@ -116,11 +112,9 @@ export default function AudienceSelection() {
             </div>
             <CardContent className="p-10 relative z-10">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <img 
-                  src="/attached_assets/image_1752241518440.png" 
-                  alt="NCAR Logo" 
-                  className="w-10 h-10 object-contain brightness-0 invert"
-                />
+                <svg width="32" height="32" viewBox="0 0 100 100" className="text-white">
+                  <text x="50" y="70" textAnchor="middle" fontSize="70" fontFamily="Arial, sans-serif" fontWeight="bold" fill="currentColor">N</text>
+                </svg>
               </div>
               <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 Clubs & High Schools
