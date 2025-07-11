@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import ncarLogo from "@assets/image_1752240108326.png";
 
 export default function Header() {
@@ -71,54 +72,81 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-neutral-700"
-            >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </Button>
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-neutral-700"
+                >
+                  <Menu size={20} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80 p-0">
+                <div className="flex flex-col h-full">
+                  {/* Header */}
+                  <div className="p-6 border-b border-neutral-100">
+                    <div className="flex items-center justify-between">
+                      <img 
+                        src={ncarLogo} 
+                        alt="NCAR Sports" 
+                        className="h-12 w-auto"
+                      />
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-neutral-700"
+                      >
+                        <X size={20} />
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  {/* Navigation */}
+                  <nav className="flex-1 p-6">
+                    <div className="space-y-6">
+                      <div className="space-y-4">
+                        <button className="flex items-center justify-between w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg">
+                          Athletes
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                        <button className="flex items-center justify-between w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg">
+                          Coaches
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                        <button className="flex items-center justify-between w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg">
+                          Clubs
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => scrollToSection("pricing")}
+                          className="w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg"
+                        >
+                          Pricing
+                        </button>
+                        <button className="flex items-center justify-between w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg">
+                          Resources
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </nav>
+                  
+                  {/* Footer Actions */}
+                  <div className="p-6 border-t border-neutral-100 space-y-3">
+                    <Button variant="ghost" className="text-neutral-700 hover:text-blue-600 w-full justify-start text-lg">
+                      Sign In
+                    </Button>
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full text-lg">
+                      Get Started
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-neutral-100">
-            <nav className="flex flex-col space-y-4">
-              <button className="flex items-center justify-between text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-left">
-                Athletes
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <button className="flex items-center justify-between text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-left">
-                Coaches
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <button className="flex items-center justify-between text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-left">
-                Clubs
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => scrollToSection("pricing")}
-                className="text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-left"
-              >
-                Pricing
-              </button>
-              <button className="flex items-center justify-between text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-left">
-                Resources
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <div className="pt-4 space-y-2">
-                <Button variant="ghost" className="text-neutral-700 hover:text-blue-600 w-full justify-start">
-                  Sign In
-                </Button>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
-                  Get Started
-                </Button>
-              </div>
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   );
