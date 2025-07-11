@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "wouter";
 import AthleteRegistrationForm from "@/components/forms/athlete-registration-form";
 import ncarLogo from "@assets/image_1752240108326.png";
 
@@ -22,11 +23,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <img 
-              src={ncarLogo} 
-              alt="NCAR Sports" 
-              className="h-16 w-auto"
-            />
+            <Link href="/" className="cursor-pointer">
+              <img 
+                src={ncarLogo} 
+                alt="NCAR Sports" 
+                className="h-16 w-auto hover:opacity-80 transition-opacity duration-200"
+              />
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
@@ -89,11 +92,13 @@ export default function Header() {
                   {/* Header */}
                   <div className="p-6 border-b border-neutral-100">
                     <div className="flex items-center justify-between">
-                      <img 
-                        src={ncarLogo} 
-                        alt="NCAR Sports" 
-                        className="h-12 w-auto"
-                      />
+                      <Link href="/" className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
+                        <img 
+                          src={ncarLogo} 
+                          alt="NCAR Sports" 
+                          className="h-12 w-auto hover:opacity-80 transition-opacity duration-200"
+                        />
+                      </Link>
                       <Button
                         variant="ghost"
                         size="sm"
