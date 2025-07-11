@@ -1,16 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { Play, CheckCircle, Star } from "lucide-react";
+import { Play, CheckCircle } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-white py-16 md:py-24 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          alt="College football stadium" 
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-white/80"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-brand-accent px-3 py-1 rounded-full text-sm font-medium text-neutral-800 mb-6">
-              <Star className="w-4 h-4" />
-              Trusted by 15,000+ student-athletes
-            </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-neutral-800">
               Get recruited to your<br />
               <span className="text-brand-primary">dream college</span>
