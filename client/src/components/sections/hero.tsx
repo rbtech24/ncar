@@ -3,25 +3,25 @@ import { Play, CheckCircle } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative bg-white py-16 md:py-24 overflow-hidden">
+    <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
           alt="College football stadium" 
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-neutral-800">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
               Get recruited to your<br />
-              <span className="text-brand-primary">dream college</span>
+              <span className="text-brand-accent">dream college</span>
             </h1>
-            <p className="text-xl text-neutral-600 mb-8 max-w-xl">
+            <p className="text-xl text-white/90 mb-8 max-w-xl">
               The complete recruiting platform that connects student-athletes with college coaches nationwide. Build your profile, showcase your skills, and get discovered.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -35,12 +35,12 @@ export default function Hero() {
             </div>
             
             <div className="mt-8 flex items-center gap-6">
-              <div className="flex items-center gap-2 text-sm text-neutral-600">
-                <CheckCircle className="w-4 h-4 text-brand-secondary" />
+              <div className="flex items-center gap-2 text-sm text-white/80">
+                <CheckCircle className="w-4 h-4 text-brand-accent" />
                 Free to start
               </div>
-              <div className="flex items-center gap-2 text-sm text-neutral-600">
-                <CheckCircle className="w-4 h-4 text-brand-secondary" />
+              <div className="flex items-center gap-2 text-sm text-white/80">
+                <CheckCircle className="w-4 h-4 text-brand-accent" />
                 No credit card required
               </div>
             </div>
