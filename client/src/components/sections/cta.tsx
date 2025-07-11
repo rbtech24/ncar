@@ -12,8 +12,8 @@ export default function CTA() {
         }}
       />
       
-      {/* Solid Color Overlay */}
-      <div className="absolute inset-0 bg-blue-900/95"></div>
+      {/* Lighter Color Overlay */}
+      <div className="absolute inset-0 bg-blue-900/40"></div>
       
       {/* Animated background elements */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>

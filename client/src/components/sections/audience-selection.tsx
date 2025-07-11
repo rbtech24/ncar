@@ -45,7 +45,7 @@ export default function AudienceSelection() {
                   <span>85% Success Rate</span>
                 </div>
               </div>
-              <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
                 <span>Get Recruited</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
@@ -81,7 +81,7 @@ export default function AudienceSelection() {
                   <span>8,200+ Commits</span>
                 </div>
               </div>
-              <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
                 <span>Find Athletes</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
@@ -117,7 +117,7 @@ export default function AudienceSelection() {
                   <span>92% Placement</span>
                 </div>
               </div>
-              <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
                 <span>Support Athletes</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
