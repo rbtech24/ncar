@@ -137,11 +137,8 @@ export default function Header() {
                   
                   {/* Footer Actions */}
                   <div className="p-6 border-t border-neutral-100 space-y-3">
-                    <Button variant="ghost" className="text-neutral-700 hover:text-blue-600 w-full justify-start text-lg">
+                    <Button className="bg-white hover:bg-gray-50 text-blue-600 border border-blue-200 w-full text-lg">
                       Sign In
-                    </Button>
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full text-lg">
-                      Get Started
                     </Button>
                     <Button 
                       onClick={() => {
