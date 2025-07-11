@@ -75,8 +75,8 @@ export default function Statistics() {
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll space-x-8">
             {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <Card key={index} className="bg-white shadow-lg border border-neutral-200 min-w-[280px] flex-shrink-0">
-                <CardContent className="p-8">
+              <Card key={index} className="bg-white shadow-lg border border-neutral-200 min-w-[240px] flex-shrink-0">
+                <CardContent className="p-6">
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 fill-yellow-400 text-black stroke-2" />
