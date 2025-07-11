@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import ParentRegistrationForm from "@/components/forms/parent-registration-form";
+import AthleteRegistrationForm from "@/components/forms/athlete-registration-form";
 
 export default function Hero() {
+  const [showParentForm, setShowParentForm] = useState(false);
+  const [showAthleteForm, setShowAthleteForm] = useState(false);
   return (
     <section 
       className="relative py-16 md:py-24 overflow-hidden bg-cover bg-center bg-no-repeat min-h-[600px]"
@@ -20,10 +25,16 @@ export default function Hero() {
               NCAR fuels millions of recruiting connections every year, helping student-athletes get recruited and play the sport they love in college. Ready to find your fit?
             </p>
             <div className="mb-8 flex flex-col sm:flex-row gap-4">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border-0">
+              <Button 
+                onClick={() => setShowParentForm(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border-0"
+              >
                 Parents Start Here
               </Button>
-              <Button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border border-blue-200">
+              <Button 
+                onClick={() => setShowAthleteForm(true)}
+                className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-3 rounded-md font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl border border-blue-200"
+              >
                 Athletes Start Here
               </Button>
             </div>
@@ -129,6 +140,14 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      
+      {/* Registration Forms */}
+      {showParentForm && (
+        <ParentRegistrationForm onClose={() => setShowParentForm(false)} />
+      )}
+      {showAthleteForm && (
+        <AthleteRegistrationForm onClose={() => setShowAthleteForm(false)} />
+      )}
     </section>
   );
 }

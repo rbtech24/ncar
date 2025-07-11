@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import AthleteRegistrationForm from "@/components/forms/athlete-registration-form";
 import ncarLogo from "@assets/image_1752240108326.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showAthleteForm, setShowAthleteForm] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -141,6 +143,16 @@ export default function Header() {
                     <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full text-lg">
                       Get Started
                     </Button>
+                    <Button 
+                      onClick={() => {
+                        setShowAthleteForm(true);
+                        setIsMenuOpen(false);
+                      }}
+                      className="bg-blue-600 hover:bg-blue-700 text-white w-full text-lg flex items-center gap-2"
+                    >
+                      <Play className="w-4 h-4" />
+                      Start Your Journey Today
+                    </Button>
                   </div>
                 </div>
               </SheetContent>
@@ -148,6 +160,11 @@ export default function Header() {
           </div>
         </div>
       </div>
+      
+      {/* Registration Form */}
+      {showAthleteForm && (
+        <AthleteRegistrationForm onClose={() => setShowAthleteForm(false)} />
+      )}
     </header>
   );
 }

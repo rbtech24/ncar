@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import CoachRegistrationForm from "@/components/forms/coach-registration-form";
 
 export default function CTA() {
+  const [showCoachForm, setShowCoachForm] = useState(false);
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Sports Background Image */}
@@ -31,7 +34,10 @@ export default function CTA() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 border-0 flex items-center gap-2 justify-center">
+          <Button 
+            onClick={() => setShowCoachForm(true)}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 border-0 flex items-center gap-2 justify-center"
+          >
             Start Your Profile
             <ArrowRight className="w-5 h-5" />
           </Button>
@@ -77,6 +83,11 @@ export default function CTA() {
           </div>
         </div>
       </div>
+      
+      {/* Registration Form */}
+      {showCoachForm && (
+        <CoachRegistrationForm onClose={() => setShowCoachForm(false)} />
+      )}
     </section>
   );
 }
