@@ -76,9 +76,11 @@ export default function Header() {
             >
               Sign In
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200">
-              Get Started
-            </Button>
+            <Link href="/get-started">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}

@@ -22,7 +22,15 @@ import {
   Users,
   Heart,
   Share2,
-  Download
+  Download,
+  Zap,
+  Brain,
+  AlertTriangle,
+  CheckCircle,
+  TrendingUp,
+  Eye,
+  Lightbulb,
+  BarChart3
 } from "lucide-react";
 
 export default function AthleteProfile() {
@@ -76,7 +84,39 @@ export default function AthleteProfile() {
       stateRanking: 15,
       nationalRanking: 142,
       positionRanking: 8
-    }
+    },
+    aiScore: 92,
+    matchPercentage: 85,
+    coachInterest: 24,
+    scoutingNotes: [
+      "Exceptional court vision and basketball IQ",
+      "Strong leadership qualities on and off the court",
+      "Needs to improve defensive footwork",
+      "Shows great potential for next level"
+    ],
+    aiSuggestions: [
+      "Compatible playing style with Division I programs",
+      "High academic potential matches target schools",
+      "Team player traits ideal for competitive programs"
+    ],
+    socialAlerts: [
+      {
+        type: "warning",
+        message: "Recent social media activity shows excellent sportsmanship"
+      }
+    ],
+    upcomingEvents: [
+      {
+        name: "Elite Showcase",
+        date: "May 15, 2025",
+        location: "Atlanta, GA"
+      },
+      {
+        name: "Regional Tournament",
+        date: "May 22, 2025", 
+        location: "Charlotte, NC"
+      }
+    ]
   };
 
   const calculateAge = (dateOfBirth: string) => {
@@ -98,11 +138,16 @@ export default function AthleteProfile() {
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             {/* Profile Image */}
             <div className="flex-shrink-0">
-              <img
-                src={athlete.profileImage}
-                alt={`${athlete.firstName} ${athlete.lastName}`}
-                className="w-48 h-48 rounded-lg object-cover shadow-lg"
-              />
+              <div className="relative">
+                <img
+                  src={athlete.profileImage}
+                  alt={`${athlete.firstName} ${athlete.lastName}`}
+                  className="w-48 h-48 rounded-xl object-cover shadow-lg"
+                />
+                <div className="absolute -bottom-2 -right-2 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                  AI Score: {athlete.aiScore}
+                </div>
+              </div>
               <div className="mt-4 flex flex-col gap-2">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
                   <MessageCircle className="w-4 h-4 mr-2" />
