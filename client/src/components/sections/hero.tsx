@@ -6,7 +6,7 @@ export default function Hero() {
     <section 
       className="relative py-16 md:py-24 overflow-hidden bg-cover bg-center bg-no-repeat min-h-[600px]"
       style={{
-        backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://www.shutterstock.com/shutterstock/videos/3507599575/thumb/11.jpg?ip=x480')`
+        backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -31,7 +31,7 @@ export default function Hero() {
               {/* Video thumbnail with play button */}
               <div className="relative aspect-video bg-gradient-to-br from-neutral-100 to-neutral-200">
                 <img 
-                  src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                  src="https://www.shutterstock.com/shutterstock/videos/3507599575/thumb/11.jpg?ip=x480"
                   alt="Baseball player at bat"
                   className="w-full h-full object-cover"
                 />
