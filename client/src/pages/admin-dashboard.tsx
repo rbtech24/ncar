@@ -86,12 +86,19 @@ export default function AdminDashboard() {
     totalCoaches: 2156,
     totalParents: 3892,
     totalColleges: 1678,
+    totalClubs: 892,
     totalMessages: 156789,
     totalCalls: 8234,
+    totalVideos: 45678,
+    totalSubscriptions: 8234,
     complianceScore: 96.8,
     serverUptime: 99.97,
     storageUsed: 78.2,
-    bandwidth: 156.8
+    bandwidth: 156.8,
+    aiProcessingJobs: 234,
+    videoAnalysisQueue: 45,
+    profileCompletionRate: 87.3,
+    matchingSuccessRate: 92.1
   };
 
   // User management data
@@ -306,12 +313,13 @@ export default function AdminDashboard() {
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-7">
+          <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="users">Users</TabsTrigger>
+            <TabsTrigger value="content">Content</TabsTrigger>
+            <TabsTrigger value="ai">AI Tools</TabsTrigger>
             <TabsTrigger value="compliance">Compliance</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="system">System</TabsTrigger>
             <TabsTrigger value="financial">Financial</TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
@@ -383,7 +391,7 @@ export default function AdminDashboard() {
                 <CardTitle>User Distribution</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                   <div className="text-center p-4 bg-blue-50 rounded-lg">
                     <Users className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-blue-600">{systemStats.totalAthletes.toLocaleString()}</div>
@@ -403,6 +411,42 @@ export default function AdminDashboard() {
                     <School className="w-8 h-8 text-orange-600 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-orange-600">{systemStats.totalColleges.toLocaleString()}</div>
                     <div className="text-sm text-orange-800">Colleges</div>
+                  </div>
+                  <div className="text-center p-4 bg-pink-50 rounded-lg">
+                    <Building className="w-8 h-8 text-pink-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-pink-600">{systemStats.totalClubs.toLocaleString()}</div>
+                    <div className="text-sm text-pink-800">Clubs</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Platform Performance */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Platform Performance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="text-center p-4 bg-indigo-50 rounded-lg">
+                    <Video className="w-8 h-8 text-indigo-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-indigo-600">{systemStats.totalVideos.toLocaleString()}</div>
+                    <div className="text-sm text-indigo-800">Videos Uploaded</div>
+                  </div>
+                  <div className="text-center p-4 bg-emerald-50 rounded-lg">
+                    <Target className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-emerald-600">{systemStats.matchingSuccessRate}%</div>
+                    <div className="text-sm text-emerald-800">Matching Success</div>
+                  </div>
+                  <div className="text-center p-4 bg-amber-50 rounded-lg">
+                    <Award className="w-8 h-8 text-amber-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-amber-600">{systemStats.profileCompletionRate}%</div>
+                    <div className="text-sm text-amber-800">Profile Completion</div>
+                  </div>
+                  <div className="text-center p-4 bg-teal-50 rounded-lg">
+                    <Cpu className="w-8 h-8 text-teal-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-teal-600">{systemStats.aiProcessingJobs}</div>
+                    <div className="text-sm text-teal-800">AI Jobs Processing</div>
                   </div>
                 </div>
               </CardContent>
@@ -599,6 +643,174 @@ export default function AdminDashboard() {
             </Card>
           </TabsContent>
 
+          <TabsContent value="content" className="space-y-6">
+            {/* Content Management */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Content Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <Video className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-blue-600">{systemStats.totalVideos.toLocaleString()}</div>
+                    <div className="text-sm text-blue-800">Total Videos</div>
+                  </div>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <Eye className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-green-600">2.1M</div>
+                    <div className="text-sm text-green-800">Video Views</div>
+                  </div>
+                  <div className="text-center p-4 bg-purple-50 rounded-lg">
+                    <FileText className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-purple-600">12.3K</div>
+                    <div className="text-sm text-purple-800">Profiles Created</div>
+                  </div>
+                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                    <Flag className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-orange-600">156</div>
+                    <div className="text-sm text-orange-800">Flagged Content</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Video className="w-5 h-5 text-blue-500" />
+                      <div>
+                        <p className="font-medium">Video Moderation Queue</p>
+                        <p className="text-sm text-gray-600">23 videos pending review</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm">
+                      Review Queue
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Flag className="w-5 h-5 text-red-500" />
+                      <div>
+                        <p className="font-medium">Reported Content</p>
+                        <p className="text-sm text-gray-600">15 profiles flagged by users</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm">
+                      Handle Reports
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Upload className="w-5 h-5 text-green-500" />
+                      <div>
+                        <p className="font-medium">Bulk Content Upload</p>
+                        <p className="text-sm text-gray-600">Manage team/club roster imports</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm">
+                      Manage Uploads
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="ai" className="space-y-6">
+            {/* AI Tools Management */}
+            <Card>
+              <CardHeader>
+                <CardTitle>AI Tools Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <Cpu className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-blue-600">{systemStats.aiProcessingJobs}</div>
+                    <div className="text-sm text-blue-800">AI Jobs Active</div>
+                  </div>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <Video className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-green-600">{systemStats.videoAnalysisQueue}</div>
+                    <div className="text-sm text-green-800">Video Analysis Queue</div>
+                  </div>
+                  <div className="text-center p-4 bg-purple-50 rounded-lg">
+                    <Target className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-purple-600">{systemStats.matchingSuccessRate}%</div>
+                    <div className="text-sm text-purple-800">Matching Accuracy</div>
+                  </div>
+                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                    <Star className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-orange-600">4.8</div>
+                    <div className="text-sm text-orange-800">AI Score Rating</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Cpu className="w-5 h-5 text-blue-500" />
+                      <div>
+                        <p className="font-medium">Profile Scoring Engine</p>
+                        <p className="text-sm text-gray-600">AI-powered athlete profile analysis and scoring</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-green-100 text-green-800">Active</Badge>
+                      <Button variant="outline" size="sm">
+                        Configure
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Video className="w-5 h-5 text-purple-500" />
+                      <div>
+                        <p className="font-medium">Video Analysis</p>
+                        <p className="text-sm text-gray-600">Automatic highlight detection and video scoring</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-yellow-100 text-yellow-800">Processing</Badge>
+                      <Button variant="outline" size="sm">
+                        View Queue
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Target className="w-5 h-5 text-green-500" />
+                      <div>
+                        <p className="font-medium">Athlete-Coach Matching</p>
+                        <p className="text-sm text-gray-600">AI-powered recruiting match suggestions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-green-100 text-green-800">Active</Badge>
+                      <Button variant="outline" size="sm">
+                        View Results
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-5 h-5 text-blue-500" />
+                      <div>
+                        <p className="font-medium">Communication Assistant</p>
+                        <p className="text-sm text-gray-600">AI-generated email templates and responses</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-blue-100 text-blue-800">Beta</Badge>
+                      <Button variant="outline" size="sm">
+                        Enable
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
           <TabsContent value="analytics" className="space-y-6">
             {/* Analytics Overview */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -771,45 +983,203 @@ export default function AdminDashboard() {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Subscription Management */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Subscription Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Users className="w-5 h-5 text-blue-500" />
+                      <div>
+                        <p className="font-medium">Free Tier Users</p>
+                        <p className="text-sm text-gray-600">4,289 users on free plans</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-blue-100 text-blue-800">Basic</Badge>
+                      <Button variant="outline" size="sm">
+                        View Details
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Star className="w-5 h-5 text-yellow-500" />
+                      <div>
+                        <p className="font-medium">Premium Athletes</p>
+                        <p className="text-sm text-gray-600">2,847 premium athlete subscriptions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-yellow-100 text-yellow-800">Premium</Badge>
+                      <Button variant="outline" size="sm">
+                        Manage
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Trophy className="w-5 h-5 text-green-500" />
+                      <div>
+                        <p className="font-medium">Coach Pro Plans</p>
+                        <p className="text-sm text-gray-600">1,298 coach professional subscriptions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-green-100 text-green-800">Pro</Badge>
+                      <Button variant="outline" size="sm">
+                        Analytics
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Building className="w-5 h-5 text-purple-500" />
+                      <div>
+                        <p className="font-medium">Club/Organization Plans</p>
+                        <p className="text-sm text-gray-600">89 club/team enterprise subscriptions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-purple-100 text-purple-800">Enterprise</Badge>
+                      <Button variant="outline" size="sm">
+                        Manage
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           <TabsContent value="settings" className="space-y-6">
-            {/* System Settings */}
+            {/* Platform Settings */}
             <Card>
               <CardHeader>
-                <CardTitle>System Settings</CardTitle>
+                <CardTitle>Platform Settings</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="font-medium text-gray-900">Maintenance Mode</h4>
-                      <p className="text-sm text-gray-600">Enable maintenance mode for system updates</p>
+                      <h4 className="font-medium text-gray-900">Feature Flags</h4>
+                      <p className="text-sm text-gray-600">Enable/disable platform features and experiments</p>
                     </div>
                     <Button variant="outline">
                       <Settings className="w-4 h-4 mr-2" />
+                      Manage Flags
+                    </Button>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-gray-900">AI Model Configuration</h4>
+                      <p className="text-sm text-gray-600">Configure AI scoring models and thresholds</p>
+                    </div>
+                    <Button variant="outline">
+                      <Cpu className="w-4 h-4 mr-2" />
+                      Configure AI
+                    </Button>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-gray-900">Video Processing</h4>
+                      <p className="text-sm text-gray-600">Configure video upload limits and processing settings</p>
+                    </div>
+                    <Button variant="outline">
+                      <Video className="w-4 h-4 mr-2" />
                       Configure
                     </Button>
                   </div>
                   <Separator />
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="font-medium text-gray-900">Backup Settings</h4>
-                      <p className="text-sm text-gray-600">Manage automated backups and retention</p>
+                      <h4 className="font-medium text-gray-900">Email Templates</h4>
+                      <p className="text-sm text-gray-600">Manage system email templates and branding</p>
+                    </div>
+                    <Button variant="outline">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Edit Templates
+                    </Button>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-gray-900">API Keys & Integrations</h4>
+                      <p className="text-sm text-gray-600">Manage third-party API keys and integrations</p>
+                    </div>
+                    <Button variant="outline">
+                      <Key className="w-4 h-4 mr-2" />
+                      Manage Keys
+                    </Button>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-gray-900">Data Export & Backup</h4>
+                      <p className="text-sm text-gray-600">Configure automated backups and data retention</p>
                     </div>
                     <Button variant="outline">
                       <Database className="w-4 h-4 mr-2" />
                       Configure
                     </Button>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Compliance Settings */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Compliance & Security</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-gray-900">NCAA Compliance Rules</h4>
+                      <p className="text-sm text-gray-600">Update and manage NCAA recruiting compliance rules</p>
+                    </div>
+                    <Button variant="outline">
+                      <Shield className="w-4 h-4 mr-2" />
+                      Update Rules
+                    </Button>
+                  </div>
                   <Separator />
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="font-medium text-gray-900">Security Settings</h4>
-                      <p className="text-sm text-gray-600">Configure authentication and security policies</p>
+                      <h4 className="font-medium text-gray-900">COPPA Compliance</h4>
+                      <p className="text-sm text-gray-600">Manage under-18 user protection and compliance</p>
+                    </div>
+                    <Button variant="outline">
+                      <UserCheck className="w-4 h-4 mr-2" />
+                      Configure
+                    </Button>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-gray-900">Data Privacy (GDPR)</h4>
+                      <p className="text-sm text-gray-600">Configure data privacy and user rights settings</p>
                     </div>
                     <Button variant="outline">
                       <Lock className="w-4 h-4 mr-2" />
+                      Privacy Settings
+                    </Button>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-gray-900">Content Moderation</h4>
+                      <p className="text-sm text-gray-600">Configure automated content filtering and moderation</p>
+                    </div>
+                    <Button variant="outline">
+                      <Flag className="w-4 h-4 mr-2" />
                       Configure
                     </Button>
                   </div>
