@@ -206,7 +206,7 @@ export default function AthleteProfile() {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
           
           {/* Left Sidebar - Athlete Profile */}
           <div className="lg:col-span-3">
@@ -290,16 +290,16 @@ export default function AthleteProfile() {
                   <h3 className="font-semibold text-gray-900 mb-3">Recent Achievements</h3>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 p-2 bg-yellow-50 border border-yellow-200 rounded-lg">
-                      <Trophy className="w-4 h-4 text-yellow-600" />
-                      <span className="text-sm text-yellow-800">State Championship Finalist</span>
+                      <Trophy className="w-4 h-4 text-yellow-600 flex-shrink-0" />
+                      <span className="text-sm text-yellow-800 break-words">State Championship Finalist</span>
                     </div>
                     <div className="flex items-center gap-2 p-2 bg-blue-50 border border-blue-200 rounded-lg">
-                      <Award className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm text-blue-800">All-Conference Team</span>
+                      <Award className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <span className="text-sm text-blue-800 break-words">All-Conference Team</span>
                     </div>
                     <div className="flex items-center gap-2 p-2 bg-green-50 border border-green-200 rounded-lg">
-                      <Star className="w-4 h-4 text-green-600" />
-                      <span className="text-sm text-green-800">Team Captain</span>
+                      <Star className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <span className="text-sm text-green-800 break-words">Team Captain</span>
                     </div>
                   </div>
                 </div>
@@ -375,7 +375,7 @@ export default function AthleteProfile() {
                   </div>
                   <div className="flex-1">
                     <div className="font-semibold text-gray-900">🔥 High Activity Week!</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-600 break-words">
                       You've received 8 new messages from Division I coaches in the last 7 days. Your profile is gaining momentum!
                     </div>
                   </div>
@@ -410,21 +410,21 @@ export default function AthleteProfile() {
                                   <Trophy className="w-5 h-5 text-blue-600" />
                                   <span className="font-medium text-blue-900">{activity.milestone}</span>
                                 </div>
-                                <p className="text-blue-800 text-sm">{activity.description}</p>
+                                <p className="text-blue-800 text-sm break-words">{activity.description}</p>
                               </div>
                             </div>
                           </div>
                           
-                          <div className="flex items-center gap-4 pt-4 border-t">
-                            <Button variant="ghost" size="sm">
-                              <Heart className="w-4 h-4 mr-2" />
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-4 pt-4 border-t">
+                            <Button variant="ghost" size="sm" className="text-xs sm:text-sm">
+                              <Heart className="w-4 h-4 mr-1 sm:mr-2" />
                               Celebrate
                             </Button>
-                            <Button variant="ghost" size="sm">
-                              <Share2 className="w-4 h-4 mr-2" />
+                            <Button variant="ghost" size="sm" className="text-xs sm:text-sm">
+                              <Share2 className="w-4 h-4 mr-1 sm:mr-2" />
                               Share
                             </Button>
-                            <span className="text-sm text-gray-500 ml-auto">{activity.stats}</span>
+                            <span className="text-sm text-gray-500 ml-auto whitespace-nowrap">{activity.stats}</span>
                           </div>
                         </div>
                       )}
@@ -448,7 +448,7 @@ export default function AthleteProfile() {
                                   <Users className="w-5 h-5 text-green-600" />
                                   <span className="font-medium text-green-900">{activity.title}</span>
                                 </div>
-                                <p className="text-green-800 text-sm">{activity.description}</p>
+                                <p className="text-green-800 text-sm break-words">{activity.description}</p>
                               </div>
                             </div>
                           </div>
@@ -506,18 +506,18 @@ export default function AthleteProfile() {
                             <h3 className="font-semibold text-gray-900 mb-2">{activity.title}</h3>
                           </div>
                           
-                          <div className="flex items-center gap-6 text-sm text-gray-500">
+                          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-gray-500">
                             <div className="flex items-center gap-1">
                               <Eye className="w-4 h-4" />
-                              {activity.views.toLocaleString()} views
+                              <span className="whitespace-nowrap">{activity.views.toLocaleString()} views</span>
                             </div>
                             <div className="flex items-center gap-1">
                               <Heart className="w-4 h-4" />
-                              {activity.likes} likes
+                              <span className="whitespace-nowrap">{activity.likes} likes</span>
                             </div>
                             <div className="flex items-center gap-1">
                               <MessageCircle className="w-4 h-4" />
-                              {activity.comments} comments
+                              <span className="whitespace-nowrap">{activity.comments} comments</span>
                             </div>
                           </div>
                         </div>
@@ -549,17 +549,19 @@ export default function AthleteProfile() {
                             </div>
                           </div>
                           
-                          <div className="flex items-center gap-4 pt-4 border-t">
-                            <Button variant="ghost" size="sm">
-                              <Heart className="w-4 h-4 mr-2" />
-                              Congratulate ({activity.likes})
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-4 pt-4 border-t">
+                            <Button variant="ghost" size="sm" className="text-xs sm:text-sm">
+                              <Heart className="w-4 h-4 mr-1 sm:mr-2" />
+                              <span className="hidden sm:inline">Congratulate</span>
+                              <span className="sm:hidden">Like</span>
+                              <span className="ml-1">({activity.likes})</span>
                             </Button>
-                            <Button variant="ghost" size="sm">
-                              <MessageCircle className="w-4 h-4 mr-2" />
+                            <Button variant="ghost" size="sm" className="text-xs sm:text-sm">
+                              <MessageCircle className="w-4 h-4 mr-1 sm:mr-2" />
                               Comment ({activity.comments})
                             </Button>
-                            <Button variant="ghost" size="sm">
-                              <Share2 className="w-4 h-4 mr-2" />
+                            <Button variant="ghost" size="sm" className="text-xs sm:text-sm">
+                              <Share2 className="w-4 h-4 mr-1 sm:mr-2" />
                               Share
                             </Button>
                           </div>
@@ -616,8 +618,8 @@ export default function AthleteProfile() {
                     </div>
                     <Flame className="w-8 h-8 text-orange-200" />
                   </div>
-                  <div className="text-xs opacity-75 mb-2">Personal Best: {athlete.longestStreak} days</div>
-                  <div className="text-xs opacity-75">Keep it up! Visit daily to maintain your streak</div>
+                  <div className="text-xs opacity-75 mb-2 break-words">Personal Best: {athlete.longestStreak} days</div>
+                  <div className="text-xs opacity-75 break-words">Keep it up! Visit daily to maintain your streak</div>
                 </CardContent>
               </Card>
 
@@ -633,13 +635,13 @@ export default function AthleteProfile() {
                   <div className="space-y-4">
                     <div>
                       <div className="flex justify-between text-sm mb-2">
-                        <span>Points: {athlete.totalPoints}</span>
-                        <span>Next: {athlete.nextLevelPoints}</span>
+                        <span className="break-words">Points: {athlete.totalPoints}</span>
+                        <span className="break-words">Next: {athlete.nextLevelPoints}</span>
                       </div>
                       <Progress value={(athlete.totalPoints / athlete.nextLevelPoints) * 100} className="h-2" />
                     </div>
                     <div className="text-center p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg">
-                      <div className="text-sm font-medium text-purple-900">
+                      <div className="text-sm font-medium text-purple-900 break-words">
                         {athlete.nextLevelPoints - athlete.totalPoints} points to Level {athlete.level + 1}
                       </div>
                     </div>
@@ -659,17 +661,17 @@ export default function AthleteProfile() {
                   <div className="space-y-3">
                     {athlete.dailyTasks.map((task, index) => (
                       <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
+                        <div className="flex items-center gap-3 min-w-0 flex-1">
+                          <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
                             task.completed ? 'bg-green-500' : 'bg-gray-300'
                           }`}>
                             {task.completed && <span className="text-white text-xs">✓</span>}
                           </div>
-                          <span className={`text-sm ${task.completed ? 'line-through text-gray-500' : 'text-gray-700'}`}>
+                          <span className={`text-sm break-words ${task.completed ? 'line-through text-gray-500' : 'text-gray-700'}`}>
                             {task.task}
                           </span>
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1 flex-shrink-0">
                           <Zap className="w-3 h-3 text-yellow-500" />
                           <span className="text-xs text-gray-500">+{task.points}</span>
                         </div>

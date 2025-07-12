@@ -315,7 +315,7 @@ export default function CoachProfile() {
         </div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
           {/* Left Content */}
           <div className="lg:col-span-8">
             {activeTab === 'dashboard' && (
@@ -465,8 +465,8 @@ export default function CoachProfile() {
                         <div className="flex gap-2">
                           <input
                             type="text"
-                            placeholder="Ask AI: 'Show me point guards in Texas with GPA above 3.5 and 40-yard dash under 4.6'"
-                            className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            placeholder="Ask AI: 'Show me point guards in Texas with GPA above 3.5'"
+                            className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
                           />
                           <Button className="bg-purple-600 hover:bg-purple-700 text-white">
                             <Zap className="w-4 h-4 mr-2" />
@@ -505,7 +505,7 @@ export default function CoachProfile() {
                         <Zap className="w-4 h-4 text-blue-600" />
                         <span className="text-sm font-medium text-blue-900">AI Insight</span>
                       </div>
-                      <div className="text-sm text-blue-700">
+                      <div className="text-sm text-blue-700 break-words">
                         Found 127 prospects matching your criteria. AI recommends prioritizing Tyler Davis (94% fit) and Marcus Johnson (91% fit) based on your roster needs.
                       </div>
                     </div>
@@ -546,7 +546,7 @@ export default function CoachProfile() {
                               {prospect.stats.apg && <span>APG: {prospect.stats.apg}</span>}
                             </div>
                             {/* AI Insights */}
-                            <div className="text-xs text-purple-600 bg-purple-50 px-2 py-1 rounded">
+                            <div className="text-xs text-purple-600 bg-purple-50 px-2 py-1 rounded break-words">
                               <span className="font-medium">AI Insight:</span> Strong fit for your system. Similar playing style to your 2023 recruit.
                             </div>
                           </div>
@@ -614,18 +614,18 @@ export default function CoachProfile() {
               <div className="space-y-6">
                 {/* AI Watchlist Overview */}
                 <Card className="bg-gradient-to-r from-green-600 to-blue-600 text-white">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                        <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
                           <Eye className="w-6 h-6" />
                         </div>
-                        <div>
-                          <h2 className="text-xl font-bold mb-1">AI-Enhanced Watchlist</h2>
-                          <p className="text-green-100">Smart tracking with predictive insights</p>
+                        <div className="min-w-0">
+                          <h2 className="text-lg sm:text-xl font-bold mb-1">AI-Enhanced Watchlist</h2>
+                          <p className="text-green-100 text-sm">Smart tracking with predictive insights</p>
                         </div>
                       </div>
-                      <div className="text-right">
+                      <div className="text-right flex-shrink-0">
                         <div className="text-2xl font-bold">{watchedAthletes.length}</div>
                         <div className="text-sm text-green-100">Athletes tracked</div>
                       </div>
@@ -648,7 +648,7 @@ export default function CoachProfile() {
                           <AlertTriangle className="w-4 h-4 text-red-600" />
                           <span className="text-sm font-medium text-red-900">Urgent Action Required</span>
                         </div>
-                        <div className="text-sm text-red-700">
+                        <div className="text-sm text-red-700 break-words">
                           Jordan Thompson has 3 new offers this week. AI recommends immediate contact to maintain competitive position.
                         </div>
                       </div>
@@ -658,7 +658,7 @@ export default function CoachProfile() {
                           <TrendingUp className="w-4 h-4 text-green-600" />
                           <span className="text-sm font-medium text-green-900">Performance Alert</span>
                         </div>
-                        <div className="text-sm text-green-700">
+                        <div className="text-sm text-green-700 break-words">
                           Marcus Williams improved his stats by 22% this month. AI suggests moving to priority target list.
                         </div>
                       </div>
@@ -668,7 +668,7 @@ export default function CoachProfile() {
                           <Calendar className="w-4 h-4 text-blue-600" />
                           <span className="text-sm font-medium text-blue-900">Optimal Contact Time</span>
                         </div>
-                        <div className="text-sm text-blue-700">
+                        <div className="text-sm text-blue-700 break-words">
                           AI analysis shows Tuesday afternoons work best for reaching Sarah Davis. Schedule your next call accordingly.
                         </div>
                       </div>
@@ -761,7 +761,7 @@ export default function CoachProfile() {
                               Latest: {athlete.lastActivity} • {athlete.timestamp}
                             </div>
                             {/* AI Insights */}
-                            <div className="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded">
+                            <div className="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded break-words">
                               <span className="font-medium">AI Insight:</span> {
                                 athlete.id === 1 ? "3 new offers this week - contact immediately" :
                                 athlete.id === 2 ? "Performance trending up 22% this month" :
