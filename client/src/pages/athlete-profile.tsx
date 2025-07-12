@@ -44,7 +44,6 @@ import {
   Contact,
   Bookmark,
   Edit,
-  Print,
   Instagram,
   Twitter,
   Youtube
@@ -276,7 +275,7 @@ export default function AthleteProfile() {
                           {isBookmarked ? 'Saved' : 'Save'}
                         </Button>
                         <Button variant="outline" className="flex-1">
-                          <Print className="w-4 h-4 mr-2" />
+                          <FileText className="w-4 h-4 mr-2" />
                           Print
                         </Button>
                       </div>
@@ -709,102 +708,6 @@ export default function AthleteProfile() {
         </div>
       </div>
       
-      <Footer />
-    </div>
-  );
-                    </div>
-                    <div className="text-2xl font-bold text-gray-900">GPA</div>
-                    <img 
-                      src={athlete.academicFit.flag} 
-                      alt="Flag" 
-                      className="w-8 h-6 ml-auto"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Right Column */}
-            <div className="space-y-6">
-              
-              {/* Social Scan */}
-              <Card className="bg-white border-0 shadow-sm">
-                <CardHeader>
-                  <CardTitle className="text-lg font-bold text-gray-900">SOCIAL SCAN</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <AlertTriangle className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-blue-600 font-bold mb-1">AI DETECTED</div>
-                      <p className="text-gray-700">{athlete.socialAlert.message}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Smart Recruiting */}
-              <Card className="bg-white border-0 shadow-sm">
-                <CardHeader>
-                  <CardTitle className="text-lg font-bold text-gray-900">SMART RECRUITING</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div>
-                      <span className="text-blue-600 font-bold">AI SUGGEST</span>
-                      <span className="text-gray-700 ml-2">{athlete.smartRecruiting.suggest}</span>
-                    </div>
-                    <div>
-                      <span className="text-blue-600 font-bold">AI PREDICT</span>
-                      <span className="text-gray-700 ml-2">{athlete.smartRecruiting.predict}</span>
-                    </div>
-                    <div>
-                      <span className="text-blue-600 font-bold">AI RECOMMEND</span>
-                      <span className="text-gray-700 ml-2">{athlete.smartRecruiting.recommend}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Additional Smart Recruiting */}
-              <Card className="bg-white border-0 shadow-sm">
-                <CardHeader>
-                  <CardTitle className="text-lg font-bold text-gray-900">SMART RECRUITING</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-blue-600 font-bold">
-                    AI :: SUGGEST reaching
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Message
-            </Button>
-            <Button variant="outline" className="border-gray-300 px-4 py-2">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              View Profile
-            </Button>
-            <Button variant="outline" className="border-gray-300 px-4 py-2">
-              <Download className="w-4 h-4 mr-2" />
-              Download
-            </Button>
-            <Button variant="outline" className="border-gray-300 px-4 py-2">
-              <Share2 className="w-4 h-4 mr-2" />
-              Share
-            </Button>
-          </div>
-
-        </div>
-      </div>
-
       <Footer />
     </div>
   );
