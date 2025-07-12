@@ -210,22 +210,24 @@ export default function AthleteProfile() {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">8</div>
-                    <div className="text-xs text-gray-500">Colleges Interested</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">12</div>
-                    <div className="text-xs text-gray-500">Coach Messages</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-600">3</div>
-                    <div className="text-xs text-gray-500">Video Highlights</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-orange-600">5.2K</div>
-                    <div className="text-xs text-gray-500">Profile Views</div>
+                <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-blue-600 mb-1">8</div>
+                      <div className="text-sm text-gray-700 font-medium">Colleges Interested</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-600 mb-1">12</div>
+                      <div className="text-sm text-gray-700 font-medium">Coach Messages</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-purple-600 mb-1">3</div>
+                      <div className="text-sm text-gray-700 font-medium">Video Highlights</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-orange-600 mb-1">5.2K</div>
+                      <div className="text-sm text-gray-700 font-medium">Profile Views</div>
+                    </div>
                   </div>
                 </div>
 
@@ -359,199 +361,213 @@ export default function AthleteProfile() {
               </div>
 
               {/* Activity Feed */}
-              {recruitmentActivity.map((activity) => (
-                <Card key={activity.id} className="bg-white shadow-sm">
-                  <CardContent className="p-6">
-                    
-                    {activity.type === "coach_message" && (
-                      <div>
-                        <div className="flex items-start gap-4 mb-4">
-                          <img 
-                            src={activity.logo} 
-                            alt={activity.college}
-                            className="w-12 h-12 rounded-lg"
-                          />
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="font-semibold text-gray-900">{activity.college}</span>
-                              <span className="text-sm text-gray-500">{activity.message}</span>
-                              <Badge variant="secondary" className="text-xs">
-                                {activity.division}
-                              </Badge>
+              {recruitmentActivity.map((activity, index) => (
+                <div key={activity.id}>
+                  <Card className="bg-white shadow-sm">
+                    <CardContent className="p-6">
+                      
+                      {activity.type === "coach_message" && (
+                        <div>
+                          <div className="flex items-start gap-4 mb-4">
+                            <img 
+                              src={activity.logo} 
+                              alt={activity.college}
+                              className="w-12 h-12 rounded-lg"
+                            />
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="font-semibold text-gray-900">{activity.college}</span>
+                                <span className="text-sm text-gray-500">{activity.message}</span>
+                                <Badge variant="secondary" className="text-xs">
+                                  {activity.division}
+                                </Badge>
+                              </div>
+                              <div className="text-sm text-gray-500 mb-2">
+                                Location: {activity.location}
+                              </div>
+                              <div className="text-sm text-gray-600 mb-2">
+                                From: {activity.coachName}
+                              </div>
+                              <Button variant="link" className="text-blue-600 p-0 h-auto">
+                                {activity.program}
+                              </Button>
                             </div>
-                            <div className="text-sm text-gray-500 mb-2">
-                              Location: {activity.location}
+                            <div className="text-sm text-gray-400">{activity.timestamp}</div>
+                          </div>
+                          
+                          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                            <div className="flex items-start gap-2">
+                              <MessageCircle className="w-5 h-5 text-blue-600 mt-0.5" />
+                              <div className="flex-1">
+                                <p className="text-sm text-blue-900 font-medium mb-1">Coach Message Preview</p>
+                                <p className="text-sm text-blue-800 mb-3">
+                                  "Hi Rod! I've been following your highlights and I'm impressed with your court vision and defensive intensity. We'd love to learn more about your academic interests and discuss how you might fit into our program..."
+                                </p>
+                                <div className="bg-white border border-blue-300 rounded-lg p-3">
+                                  <div className="flex items-center justify-between">
+                                    <span className="text-sm font-medium text-blue-900">
+                                      🔒 Upgrade to view full message
+                                    </span>
+                                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                                      Upgrade Now
+                                    </Button>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div className="text-sm text-gray-600 mb-2">
-                              From: {activity.coachName}
-                            </div>
-                            <Button variant="link" className="text-blue-600 p-0 h-auto">
-                              {activity.program}
+                          </div>
+                          
+                          <div className="flex items-center gap-4 pt-4 border-t">
+                            <Button variant="ghost" size="sm">
+                              <MessageCircle className="w-4 h-4 mr-2" />
+                              Reply
+                            </Button>
+                            <Button variant="ghost" size="sm">
+                              <Heart className="w-4 h-4 mr-2" />
+                              Like
+                            </Button>
+                            <Button variant="ghost" size="sm">
+                              <Share2 className="w-4 h-4 mr-2" />
+                              Share
+                            </Button>
+                            <Button variant="ghost" size="sm">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              View School
                             </Button>
                           </div>
-                          <div className="text-sm text-gray-400">{activity.timestamp}</div>
                         </div>
-                        
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                          <div className="flex items-start gap-2">
-                            <MessageCircle className="w-5 h-5 text-blue-600 mt-0.5" />
-                            <div>
-                              <p className="text-sm text-blue-900 font-medium mb-1">Coach Message Preview</p>
-                              <p className="text-sm text-blue-800">
-                                "Hi Rod! I've been following your highlights and I'm impressed with your court vision and defensive intensity. We'd love to learn more about your academic interests and discuss how you might fit into our program..."
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-center gap-4 pt-4 border-t">
-                          <Button variant="ghost" size="sm">
-                            <MessageCircle className="w-4 h-4 mr-2" />
-                            Reply
-                          </Button>
-                          <Button variant="ghost" size="sm">
-                            <Heart className="w-4 h-4 mr-2" />
-                            Like
-                          </Button>
-                          <Button variant="ghost" size="sm">
-                            <Share2 className="w-4 h-4 mr-2" />
-                            Share
-                          </Button>
-                          <Button variant="ghost" size="sm">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            View School
-                          </Button>
-                        </div>
-                      </div>
-                    )}
+                      )}
 
-                    {activity.type === "video_highlight" && (
-                      <div>
-                        <div className="flex items-start gap-4 mb-4">
-                          <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                            <User className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="font-semibold text-gray-900">{activity.athlete}</span>
-                              <Badge variant="outline" className="text-xs">
-                                {activity.sport} • {activity.gradYear}
-                              </Badge>
+                      {activity.type === "video_highlight" && (
+                        <div>
+                          <div className="flex items-start gap-4 mb-4">
+                            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                              <User className="w-6 h-6 text-white" />
                             </div>
-                            <div className="text-sm text-gray-500">uploaded a video • {activity.timestamp}</div>
-                          </div>
-                        </div>
-                        
-                        <div className="relative mb-4">
-                          <img 
-                            src={activity.thumbnail} 
-                            alt={activity.title}
-                            className="w-full h-64 object-cover rounded-lg"
-                          />
-                          <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg flex items-center justify-center">
-                            <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
-                              <Play className="w-8 h-8 text-gray-900 ml-1" />
-                            </div>
-                          </div>
-                          {activity.duration && (
-                            <div className="absolute bottom-3 right-3 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
-                              {activity.duration}
-                            </div>
-                          )}
-                        </div>
-                        
-                        <div className="mb-4">
-                          <h3 className="font-semibold text-gray-900 mb-2">{activity.title}</h3>
-                        </div>
-                        
-                        <div className="flex items-center gap-6 text-sm text-gray-500">
-                          <div className="flex items-center gap-1">
-                            <Eye className="w-4 h-4" />
-                            {activity.views.toLocaleString()} views
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Heart className="w-4 h-4" />
-                            {activity.likes} likes
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <MessageCircle className="w-4 h-4" />
-                            {activity.comments} comments
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {activity.type === "peer_achievement" && (
-                      <div>
-                        <div className="flex items-start gap-4 mb-4">
-                          <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                            <Trophy className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="font-semibold text-gray-900">{activity.athlete}</span>
-                              <Badge variant="outline" className="text-xs">
-                                {activity.sport} • {activity.gradYear}
-                              </Badge>
-                            </div>
-                            <div className="text-sm text-gray-500 mb-2">{activity.timestamp}</div>
-                            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                              <div className="flex items-center gap-2 mb-2">
-                                <Trophy className="w-5 h-5 text-green-600" />
-                                <span className="font-medium text-green-900">Achievement Unlocked!</span>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="font-semibold text-gray-900">{activity.athlete}</span>
+                                <Badge variant="outline" className="text-xs">
+                                  {activity.sport} • {activity.gradYear}
+                                </Badge>
                               </div>
-                              <p className="text-green-800 font-medium">{activity.achievement}</p>
+                              <div className="text-sm text-gray-500">uploaded a video • {activity.timestamp}</div>
+                            </div>
+                          </div>
+                          
+                          <div className="relative mb-4">
+                            <img 
+                              src={activity.thumbnail} 
+                              alt={activity.title}
+                              className="w-full h-64 object-cover rounded-lg"
+                            />
+                            <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg flex items-center justify-center">
+                              <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
+                                <Play className="w-8 h-8 text-gray-900 ml-1" />
+                              </div>
+                            </div>
+                            {activity.duration && (
+                              <div className="absolute bottom-3 right-3 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                                {activity.duration}
+                              </div>
+                            )}
+                          </div>
+                          
+                          <div className="mb-4">
+                            <h3 className="font-semibold text-gray-900 mb-2">{activity.title}</h3>
+                          </div>
+                          
+                          <div className="flex items-center gap-6 text-sm text-gray-500">
+                            <div className="flex items-center gap-1">
+                              <Eye className="w-4 h-4" />
+                              {activity.views.toLocaleString()} views
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Heart className="w-4 h-4" />
+                              {activity.likes} likes
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MessageCircle className="w-4 h-4" />
+                              {activity.comments} comments
                             </div>
                           </div>
                         </div>
-                        
-                        <div className="flex items-center gap-4 pt-4 border-t">
-                          <Button variant="ghost" size="sm">
-                            <Heart className="w-4 h-4 mr-2" />
-                            Congratulate ({activity.likes})
-                          </Button>
-                          <Button variant="ghost" size="sm">
-                            <MessageCircle className="w-4 h-4 mr-2" />
-                            Comment ({activity.comments})
-                          </Button>
-                          <Button variant="ghost" size="sm">
-                            <Share2 className="w-4 h-4 mr-2" />
-                            Share
-                          </Button>
-                        </div>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
+                      )}
 
-              {/* Upgrade Today Section */}
-              <Card className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Upgrade Today!</h3>
-                  <div className="space-y-2 mb-6">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-sm">See who's viewing you</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-sm">Access to every college coach</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-sm">Dedicated recruiting analyst</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-sm">Professional video support</span>
-                    </div>
-                  </div>
-                  <Button className="bg-white text-blue-600 hover:bg-gray-100">
-                    Upgrade Now!
-                  </Button>
-                </CardContent>
-              </Card>
+                      {activity.type === "peer_achievement" && (
+                        <div>
+                          <div className="flex items-start gap-4 mb-4">
+                            <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                              <Trophy className="w-6 h-6 text-white" />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="font-semibold text-gray-900">{activity.athlete}</span>
+                                <Badge variant="outline" className="text-xs">
+                                  {activity.sport} • {activity.gradYear}
+                                </Badge>
+                              </div>
+                              <div className="text-sm text-gray-500 mb-2">{activity.timestamp}</div>
+                              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Trophy className="w-5 h-5 text-green-600" />
+                                  <span className="font-medium text-green-900">Achievement Unlocked!</span>
+                                </div>
+                                <p className="text-green-800 font-medium">{activity.achievement}</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-4 pt-4 border-t">
+                            <Button variant="ghost" size="sm">
+                              <Heart className="w-4 h-4 mr-2" />
+                              Congratulate ({activity.likes})
+                            </Button>
+                            <Button variant="ghost" size="sm">
+                              <MessageCircle className="w-4 h-4 mr-2" />
+                              Comment ({activity.comments})
+                            </Button>
+                            <Button variant="ghost" size="sm">
+                              <Share2 className="w-4 h-4 mr-2" />
+                              Share
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Insert Upgrade Today Section after the 4th activity */}
+                  {index === 3 && (
+                    <Card className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-bold mb-4">Upgrade Today!</h3>
+                        <div className="space-y-2 mb-6">
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span className="text-sm">See who's viewing you</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span className="text-sm">Access to every college coach</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span className="text-sm">Dedicated recruiting analyst</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span className="text-sm">Professional video support</span>
+                          </div>
+                        </div>
+                        <Button className="bg-white text-blue-600 hover:bg-gray-100">
+                          Upgrade Now!
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
