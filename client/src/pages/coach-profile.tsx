@@ -40,7 +40,9 @@ import {
   Phone,
   Calendar,
   GraduationCap,
-  Building
+  Building,
+  AlertTriangle,
+  Filter
 } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -445,32 +447,72 @@ export default function CoachProfile() {
 
             {activeTab === 'prospects' && (
               <div className="space-y-6">
+                {/* AI-Enhanced Search */}
                 <Card className="bg-white shadow-sm">
                   <CardHeader>
                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
                       <Users className="w-5 h-5" />
-                      Discover New Prospects
+                      AI-Powered Prospect Discovery
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="mb-4">
-                      <div className="flex gap-4 mb-4">
-                        <div className="flex-1">
+                    <div className="mb-6">
+                      {/* Natural Language Search */}
+                      <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Natural Language Search
+                        </label>
+                        <div className="flex gap-2">
                           <input
                             type="text"
-                            placeholder="Search by name, position, or location..."
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Ask AI: 'Show me point guards in Texas with GPA above 3.5 and 40-yard dash under 4.6'"
+                            className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                           />
+                          <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+                            <Zap className="w-4 h-4 mr-2" />
+                            AI Search
+                          </Button>
                         </div>
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                          <Target className="w-4 h-4 mr-2" />
-                          Search
-                        </Button>
+                      </div>
+                      
+                      {/* Smart Suggestions */}
+                      <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+                        <div className="text-sm font-medium text-gray-900 mb-2">AI Suggestions Based on Your Needs:</div>
+                        <div className="flex flex-wrap gap-2">
+                          <Button size="sm" variant="outline" className="text-xs">
+                            <Target className="w-3 h-3 mr-1" />
+                            Centers like your starter
+                          </Button>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            <TrendingUp className="w-3 h-3 mr-1" />
+                            Rising sophomores
+                          </Button>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            <GraduationCap className="w-3 h-3 mr-1" />
+                            Academic standouts
+                          </Button>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            <MapPin className="w-3 h-3 mr-1" />
+                            Local talent
+                          </Button>
+                        </div>
                       </div>
                     </div>
+
+                    {/* AI Insights Bar */}
+                    <div className="mb-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Zap className="w-4 h-4 text-blue-600" />
+                        <span className="text-sm font-medium text-blue-900">AI Insight</span>
+                      </div>
+                      <div className="text-sm text-blue-700">
+                        Found 127 prospects matching your criteria. AI recommends prioritizing Tyler Davis (94% fit) and Marcus Johnson (91% fit) based on your roster needs.
+                      </div>
+                    </div>
+
                     <div className="space-y-4">
                       {prospectSearchResults.map((prospect) => (
-                        <div key={prospect.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div key={prospect.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                           <img 
                             src={prospect.profileImage} 
                             alt={prospect.name}
@@ -480,8 +522,11 @@ export default function CoachProfile() {
                             <div className="flex items-center justify-between mb-1">
                               <div className="font-medium text-gray-900">{prospect.name}</div>
                               <div className="flex items-center gap-2">
-                                <div className="text-sm text-green-600 font-medium">
-                                  {prospect.matchScore}% Match
+                                <div className="flex items-center gap-1">
+                                  <Zap className="w-3 h-3 text-green-600" />
+                                  <span className="text-sm text-green-600 font-medium">
+                                    {prospect.matchScore}% AI Match
+                                  </span>
                                 </div>
                                 <Badge className="bg-yellow-100 text-yellow-800">
                                   {prospect.rating}
@@ -494,14 +539,18 @@ export default function CoachProfile() {
                             <div className="text-xs text-gray-500 mb-2">
                               {prospect.location} • Class of {prospect.gradYear}
                             </div>
-                            <div className="text-xs text-gray-600 flex gap-4">
+                            <div className="text-xs text-gray-600 flex gap-4 mb-2">
                               <span>PPG: {prospect.stats.ppg}</span>
                               <span>RPG: {prospect.stats.rpg}</span>
                               {prospect.stats.bpg && <span>BPG: {prospect.stats.bpg}</span>}
                               {prospect.stats.apg && <span>APG: {prospect.stats.apg}</span>}
                             </div>
+                            {/* AI Insights */}
+                            <div className="text-xs text-purple-600 bg-purple-50 px-2 py-1 rounded">
+                              <span className="font-medium">AI Insight:</span> Strong fit for your system. Similar playing style to your 2023 recruit.
+                            </div>
                           </div>
-                          <div className="flex gap-2">
+                          <div className="flex flex-col gap-2">
                             <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
                               <MessageCircle className="w-4 h-4 mr-2" />
                               Contact
@@ -510,9 +559,51 @@ export default function CoachProfile() {
                               <Eye className="w-4 h-4 mr-2" />
                               Add to Watchlist
                             </Button>
+                            <Button size="sm" variant="outline" className="text-xs">
+                              <TrendingUp className="w-3 h-3 mr-1" />
+                              AI Analysis
+                            </Button>
                           </div>
                         </div>
                       ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* AI Recruiting Recommendations */}
+                <Card className="bg-white shadow-sm">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                      <TrendingUp className="w-5 h-5" />
+                      AI Recruiting Recommendations
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Target className="w-4 h-4 text-green-600" />
+                          <span className="text-sm font-medium text-green-900">Priority Target</span>
+                        </div>
+                        <div className="text-sm text-gray-700 mb-2">
+                          Jordan Thompson (Point Guard) - 94% fit score
+                        </div>
+                        <div className="text-xs text-gray-600">
+                          Similar to your 2022 commit. Strong academic profile.
+                        </div>
+                      </div>
+                      <div className="p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <TrendingUp className="w-4 h-4 text-purple-600" />
+                          <span className="text-sm font-medium text-purple-900">Rising Star</span>
+                        </div>
+                        <div className="text-sm text-gray-700 mb-2">
+                          Marcus Williams (Center) - High growth potential
+                        </div>
+                        <div className="text-xs text-gray-600">
+                          AI predicts 15% performance improvement by senior year.
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -521,6 +612,105 @@ export default function CoachProfile() {
 
             {activeTab === 'watchlist' && (
               <div className="space-y-6">
+                {/* AI Watchlist Overview */}
+                <Card className="bg-gradient-to-r from-green-600 to-blue-600 text-white">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                          <Eye className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h2 className="text-xl font-bold mb-1">AI-Enhanced Watchlist</h2>
+                          <p className="text-green-100">Smart tracking with predictive insights</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold">{watchedAthletes.length}</div>
+                        <div className="text-sm text-green-100">Athletes tracked</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* AI Alerts & Recommendations */}
+                <Card className="bg-white shadow-sm">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                      <Bell className="w-5 h-5" />
+                      AI Alerts & Recommendations
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                        <div className="flex items-center gap-2 mb-1">
+                          <AlertTriangle className="w-4 h-4 text-red-600" />
+                          <span className="text-sm font-medium text-red-900">Urgent Action Required</span>
+                        </div>
+                        <div className="text-sm text-red-700">
+                          Jordan Thompson has 3 new offers this week. AI recommends immediate contact to maintain competitive position.
+                        </div>
+                      </div>
+                      
+                      <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <div className="flex items-center gap-2 mb-1">
+                          <TrendingUp className="w-4 h-4 text-green-600" />
+                          <span className="text-sm font-medium text-green-900">Performance Alert</span>
+                        </div>
+                        <div className="text-sm text-green-700">
+                          Marcus Williams improved his stats by 22% this month. AI suggests moving to priority target list.
+                        </div>
+                      </div>
+
+                      <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Calendar className="w-4 h-4 text-blue-600" />
+                          <span className="text-sm font-medium text-blue-900">Optimal Contact Time</span>
+                        </div>
+                        <div className="text-sm text-blue-700">
+                          AI analysis shows Tuesday afternoons work best for reaching Sarah Davis. Schedule your next call accordingly.
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Smart Watchlist Filters */}
+                <Card className="bg-white shadow-sm">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                      <Filter className="w-5 h-5" />
+                      Smart Filters
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      <Button size="sm" variant="outline" className="text-xs">
+                        <TrendingUp className="w-3 h-3 mr-1" />
+                        Rising performers
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs">
+                        <AlertTriangle className="w-3 h-3 mr-1" />
+                        Needs attention
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        Ready to contact
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs">
+                        <Star className="w-3 h-3 mr-1" />
+                        Top priorities
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs">
+                        <Trophy className="w-3 h-3 mr-1" />
+                        Offer ready
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Enhanced Watchlist */}
                 <Card className="bg-white shadow-sm">
                   <CardHeader>
                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
@@ -531,22 +721,35 @@ export default function CoachProfile() {
                   <CardContent>
                     <div className="space-y-4">
                       {watchedAthletes.map((athlete) => (
-                        <div key={athlete.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                          <img 
-                            src={athlete.profileImage} 
-                            alt={athlete.name}
-                            className="w-12 h-12 rounded-full"
-                          />
+                        <div key={athlete.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <div className="relative">
+                            <img 
+                              src={athlete.profileImage} 
+                              alt={athlete.name}
+                              className="w-12 h-12 rounded-full"
+                            />
+                            {/* AI Status Indicator */}
+                            <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                              <Zap className="w-2 h-2 text-white" />
+                            </div>
+                          </div>
                           <div className="flex-1">
                             <div className="flex items-center justify-between mb-1">
                               <div className="font-medium text-gray-900">{athlete.name}</div>
-                              <Badge className={`text-xs ${
-                                athlete.status === 'Committed' ? 'bg-green-100 text-green-800' :
-                                athlete.status === 'Offer Extended' ? 'bg-blue-100 text-blue-800' :
-                                'bg-gray-100 text-gray-800'
-                              }`}>
-                                {athlete.status}
-                              </Badge>
+                              <div className="flex items-center gap-2">
+                                <Badge className={`text-xs ${
+                                  athlete.status === 'Committed' ? 'bg-green-100 text-green-800' :
+                                  athlete.status === 'Offer Extended' ? 'bg-blue-100 text-blue-800' :
+                                  'bg-gray-100 text-gray-800'
+                                }`}>
+                                  {athlete.status}
+                                </Badge>
+                                {athlete.id === 1 && (
+                                  <Badge className="bg-red-100 text-red-800 text-xs">
+                                    Urgent
+                                  </Badge>
+                                )}
+                              </div>
                             </div>
                             <div className="text-sm text-gray-600 mb-1">
                               {athlete.position} • {athlete.height} • {athlete.weight}
@@ -554,11 +757,20 @@ export default function CoachProfile() {
                             <div className="text-xs text-gray-500 mb-2">
                               {athlete.location} • Class of {athlete.gradYear} • {athlete.rating}
                             </div>
-                            <div className="text-xs text-gray-600">
+                            <div className="text-xs text-gray-600 mb-2">
                               Latest: {athlete.lastActivity} • {athlete.timestamp}
                             </div>
+                            {/* AI Insights */}
+                            <div className="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded">
+                              <span className="font-medium">AI Insight:</span> {
+                                athlete.id === 1 ? "3 new offers this week - contact immediately" :
+                                athlete.id === 2 ? "Performance trending up 22% this month" :
+                                athlete.id === 3 ? "Optimal contact window: Tuesday afternoons" :
+                                "Strong interest in your program based on engagement"
+                              }
+                            </div>
                           </div>
-                          <div className="flex gap-2">
+                          <div className="flex flex-col gap-2">
                             <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
                               <MessageCircle className="w-4 h-4 mr-2" />
                               Message
@@ -567,9 +779,42 @@ export default function CoachProfile() {
                               <Trophy className="w-4 h-4 mr-2" />
                               Offer
                             </Button>
+                            <Button size="sm" variant="outline" className="text-xs">
+                              <TrendingUp className="w-3 h-3 mr-1" />
+                              AI Analysis
+                            </Button>
                           </div>
                         </div>
                       ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* AI Predictive Analytics */}
+                <Card className="bg-white shadow-sm">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                      <TrendingUp className="w-5 h-5" />
+                      AI Predictive Analytics
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+                        <div className="text-sm font-medium text-gray-900 mb-1">Commitment Probability</div>
+                        <div className="text-2xl font-bold text-blue-600 mb-1">73%</div>
+                        <div className="text-xs text-gray-600">Average across watchlist</div>
+                      </div>
+                      <div className="p-4 bg-gradient-to-r from-green-50 to-teal-50 rounded-lg">
+                        <div className="text-sm font-medium text-gray-900 mb-1">Optimal Contact Window</div>
+                        <div className="text-2xl font-bold text-green-600 mb-1">72hrs</div>
+                        <div className="text-xs text-gray-600">For highest response rate</div>
+                      </div>
+                      <div className="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg">
+                        <div className="text-sm font-medium text-gray-900 mb-1">Competition Index</div>
+                        <div className="text-2xl font-bold text-orange-600 mb-1">Medium</div>
+                        <div className="text-xs text-gray-600">Based on offer activity</div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
