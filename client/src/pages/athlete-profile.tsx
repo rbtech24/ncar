@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   MapPin, 
   Calendar, 
@@ -15,694 +14,395 @@ import {
   Phone, 
   Mail,
   User,
-  Target,
-  Award,
-  Video,
-  BookOpen,
-  Users,
   Heart,
   Share2,
-  Download,
-  Zap,
-  Brain,
-  AlertTriangle,
-  CheckCircle,
-  TrendingUp,
   Eye,
-  Lightbulb,
-  BarChart3,
-  ExternalLink,
-  School,
-  Globe,
-  FileText,
-  CalendarDays,
-  Ruler,
-  Weight,
-  Clock,
-  PlayCircle,
-  Camera,
-  Contact,
-  Bookmark,
-  Edit,
-  Instagram,
-  Twitter,
-  Youtube
+  Play,
+  ChevronDown,
+  Bell,
+  Settings,
+  Video,
+  Users,
+  Award,
+  ExternalLink
 } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
 export default function AthleteProfile() {
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const [activeTab, setActiveTab] = useState("overview");
+  const [isFollowing, setIsFollowing] = useState(false);
 
-  // Comprehensive athlete data based on specification
+  // Real athlete data matching SportsRecruits structure
   const athlete = {
-    // Basic Info
-    firstName: "Emma",
-    lastName: "Johnson",
-    primaryPosition: "Outside Hitter",
-    secondaryPosition: "Middle Blocker",
-    sport: "Volleyball",
-    graduationYear: 2025,
+    name: "Rod Burnett",
+    sport: "Basketball",
+    gradYear: "2024",
     location: "Chicago, IL",
-    profileImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
-    
-    // School Info
-    highSchool: "Lincoln Park High School",
-    clubTeam: "Chicago Elite Volleyball Club",
-    
-    // Contact Info
-    parentEmail: "parents@email.com",
-    parentPhone: "(555) 123-4567",
-    coachName: "Coach Sarah Williams",
-    coachEmail: "coach@lphs.edu",
-    coachPhone: "(555) 987-6543",
-    
-    // Athletic Stats
-    height: "5'11\"",
-    weight: "155 lbs",
-    wingspan: "6'2\"",
-    verticalJump: "9'8\"",
-    fortyYardDash: "N/A",
-    
-    // Academic Info
-    gpa: 3.8,
-    satScore: 1360,
-    actScore: 31,
-    advancedClasses: ["AP Biology", "AP English", "Honors Chemistry"],
-    academicHonors: ["Honor Roll", "National Merit Semifinalist"],
-    
-    // Bio
-    bio: "Passionate volleyball player with 8+ years of experience. Known for powerful attacks and strong defensive play. Team captain for 2 years, leading team to state championship. Committed to excellence both on the court and in the classroom.",
-    whyCollege: "I want to compete at the highest level while pursuing my degree in Sports Medicine. College volleyball will help me develop leadership skills and prepare for a career in athletic training.",
-    
-    // Videos
-    featuredVideo: {
-      title: "2024 Season Highlights",
-      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      thumbnail: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=225&fit=crop",
-      duration: "3:45"
+    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    stats: {
+      colleges: 0,
+      coaches: 0,
+      offers: 0,
+      visits: 0
     },
-    highlights: [
-      {
-        title: "Skills Showcase",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        thumbnail: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=300&h=169&fit=crop",
-        duration: "2:15"
-      },
-      {
-        title: "Championship Game",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        thumbnail: "https://images.unsplash.com/photo-1609688669309-fc15db557633?w=300&h=169&fit=crop",
-        duration: "4:30"
-      }
-    ],
-    
-    // Photos
-    actionPhotos: [
-      "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1609688669309-fc15db557633?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=300&h=200&fit=crop"
-    ],
-    
-    // Season Stats
-    seasonStats: [
-      {
-        year: "2024",
-        team: "Lincoln Park HS",
-        kills: 342,
-        blocks: 89,
-        aces: 56,
-        assists: 123
-      },
-      {
-        year: "2023",
-        team: "Lincoln Park HS",
-        kills: 298,
-        blocks: 67,
-        aces: 43,
-        assists: 98
-      }
-    ],
-    
-    // Achievements
-    athleticAwards: [
-      "State Championship MVP (2024)",
-      "All-Conference First Team (2023, 2024)",
-      "Regional Player of the Year (2024)",
-      "Team Captain (2023, 2024)"
-    ],
-    academicAwards: [
-      "Academic All-State (2024)",
-      "Honor Roll (2022-2024)",
-      "National Merit Semifinalist (2024)"
-    ],
-    
-    // Schedule
-    upcomingGames: [
-      {
-        date: "2024-03-15",
-        opponent: "Central High School",
-        location: "Home",
-        time: "6:00 PM"
-      },
-      {
-        date: "2024-03-22",
-        opponent: "Regional Championships",
-        location: "Chicago Sports Complex",
-        time: "2:00 PM"
-      }
-    ],
-    
-    // Recruiting Status
-    recruitingStatus: {
-      committed: false,
-      offers: [
-        { school: "University of Illinois", status: "Offer", date: "2024-02-15" },
-        { school: "Northwestern University", status: "Interest", date: "2024-03-01" },
-        { school: "Loyola University", status: "Contacted", date: "2024-02-28" }
-      ]
-    },
-    
-    // Social Media
-    socialMedia: {
-      instagram: "@emma.johnson.vb",
-      twitter: "@emmavolleyball",
-      hudl: "emma-johnson-volleyball",
-      youtube: "Emma Johnson VB"
+    profileCompletion: 45,
+    verificationProgress: {
+      uploadPhoto: { completed: true, text: "Upload your profile photo" },
+      addVideo: { completed: true, text: "Add your grads video" },
+      fillPosition: { completed: false, text: "Fill out your position" }
     }
   };
+
+  const recruitmentActivity = [
+    {
+      id: 1,
+      type: "coach_message",
+      college: "Bryant University",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
+      message: "sent a message to in 2027 Athlete",
+      location: "Smithfield, Rhode Island",
+      program: "View Basketball Program",
+      timestamp: "2 hours ago"
+    },
+    {
+      id: 2,
+      type: "coach_message", 
+      college: "University of South Alabama",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
+      message: "sent a message to in 2027 Athlete",
+      location: "Mobile, Alabama",
+      program: "View Basketball Program",
+      timestamp: "1 day ago"
+    },
+    {
+      id: 3,
+      type: "video_highlight",
+      athlete: "Jacqueline Harbison",
+      title: "Defensive Work - Jill Harbison",
+      views: 1240,
+      likes: 89,
+      comments: 12,
+      timestamp: "3 days ago",
+      thumbnail: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <div className="pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            
-            {/* Left Sidebar - Profile Info */}
-            <div className="lg:col-span-1">
-              {/* Profile Picture & Basic Info */}
-              <Card className="bg-white shadow-sm border-0">
-                <CardContent className="p-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative mb-6">
-                      <img
-                        src={athlete.profileImage}
-                        alt={`${athlete.firstName} ${athlete.lastName}`}
-                        className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md"
-                      />
-                      <div className="absolute -top-2 -right-2 bg-green-500 text-white rounded-full p-1">
-                        <CheckCircle className="w-4 h-4" />
-                      </div>
-                    </div>
-                    
-                    <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                      {athlete.firstName} {athlete.lastName}
-                    </h1>
-                    
-                    <div className="space-y-2 text-center mb-6">
-                      <p className="text-lg font-semibold text-blue-600">{athlete.primaryPosition}</p>
-                      {athlete.secondaryPosition && (
-                        <p className="text-sm text-gray-600">Also plays {athlete.secondaryPosition}</p>
-                      )}
-                      <p className="text-gray-600">{athlete.sport}</p>
-                      <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                        <GraduationCap className="w-4 h-4" />
-                        <span>Class of {athlete.graduationYear}</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                        <MapPin className="w-4 h-4" />
-                        <span>{athlete.location}</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                        <School className="w-4 h-4" />
-                        <span>{athlete.highSchool}</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                        <Users className="w-4 h-4" />
-                        <span>{athlete.clubTeam}</span>
-                      </div>
-                    </div>
-                    
-                    {/* Contact Action Buttons */}
-                    <div className="w-full space-y-3">
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        Message Athlete
-                      </Button>
-                      
-                      <div className="flex gap-2">
-                        <Button variant="outline" className="flex-1">
-                          <Share2 className="w-4 h-4 mr-2" />
-                          Share
-                        </Button>
-                        <Button variant="outline" className="flex-1">
-                          <Download className="w-4 h-4 mr-2" />
-                          Resume
-                        </Button>
-                      </div>
-                      
-                      <div className="flex gap-2">
-                        <Button 
-                          variant="outline" 
-                          className="flex-1"
-                          onClick={() => setIsBookmarked(!isBookmarked)}
-                        >
-                          <Bookmark className={`w-4 h-4 mr-2 ${isBookmarked ? 'fill-current' : ''}`} />
-                          {isBookmarked ? 'Saved' : 'Save'}
-                        </Button>
-                        <Button variant="outline" className="flex-1">
-                          <FileText className="w-4 h-4 mr-2" />
-                          Print
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              {/* Quick Stats */}
-              <Card className="bg-white shadow-sm border-0 mt-6">
-                <CardHeader>
-                  <CardTitle className="text-lg">Quick Stats</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Height</span>
-                    <span className="font-semibold">{athlete.height}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Weight</span>
-                    <span className="font-semibold">{athlete.weight}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Wingspan</span>
-                    <span className="font-semibold">{athlete.wingspan}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Vertical</span>
-                    <span className="font-semibold">{athlete.verticalJump}</span>
-                  </div>
-                  <Separator />
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">GPA</span>
-                    <span className="font-semibold">{athlete.gpa}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">SAT</span>
-                    <span className="font-semibold">{athlete.satScore}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">ACT</span>
-                    <span className="font-semibold">{athlete.actScore}</span>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              {/* Contact Info (Private for Coaches) */}
-              <Card className="bg-white shadow-sm border-0 mt-6">
-                <CardHeader>
-                  <CardTitle className="text-lg">Contact Information</CardTitle>
-                  <CardDescription>Available to verified coaches only</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <p className="text-sm font-medium text-gray-700">Parent/Guardian</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Mail className="w-4 h-4" />
-                      <span>{athlete.parentEmail}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Phone className="w-4 h-4" />
-                      <span>{athlete.parentPhone}</span>
-                    </div>
-                  </div>
-                  <Separator />
-                  <div>
-                    <p className="text-sm font-medium text-gray-700">High School Coach</p>
-                    <p className="text-sm text-gray-600">{athlete.coachName}</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Mail className="w-4 h-4" />
-                      <span>{athlete.coachEmail}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Phone className="w-4 h-4" />
-                      <span>{athlete.coachPhone}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              {/* Social Media */}
-              <Card className="bg-white shadow-sm border-0 mt-6">
-                <CardHeader>
-                  <CardTitle className="text-lg">Social Media</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Instagram className="w-4 h-4 text-pink-600" />
-                    <span className="text-sm text-gray-600">{athlete.socialMedia.instagram}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Twitter className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm text-gray-600">{athlete.socialMedia.twitter}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Youtube className="w-4 h-4 text-red-600" />
-                    <span className="text-sm text-gray-600">{athlete.socialMedia.youtube}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Video className="w-4 h-4 text-orange-600" />
-                    <span className="text-sm text-gray-600">{athlete.socialMedia.hudl}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-            
-            {/* Main Content */}
-            <div className="lg:col-span-3">
-              {/* Featured Video */}
-              <Card className="bg-white shadow-sm border-0 mb-8">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <PlayCircle className="w-5 h-5 text-blue-600" />
-                    Featured Video
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="relative bg-gray-100 rounded-lg overflow-hidden">
-                    <img
-                      src={athlete.featuredVideo.thumbnail}
-                      alt={athlete.featuredVideo.title}
-                      className="w-full h-64 object-cover"
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          {/* Left Sidebar - Athlete Profile */}
+          <div className="lg:col-span-3">
+            <Card className="bg-white shadow-sm">
+              <CardContent className="p-6">
+                {/* Profile Photo */}
+                <div className="text-center mb-6">
+                  <div className="relative inline-block">
+                    <img 
+                      src={athlete.profileImage} 
+                      alt={athlete.name}
+                      className="w-20 h-20 rounded-full mx-auto mb-4"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <PlayCircle className="w-16 h-16 mx-auto mb-2 cursor-pointer hover:scale-110 transition-transform" />
-                        <p className="font-semibold">{athlete.featuredVideo.title}</p>
-                        <p className="text-sm opacity-90">{athlete.featuredVideo.duration}</p>
-                      </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">!</span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-              
-              {/* Tabbed Content */}
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="grid w-full grid-cols-5">
-                  <TabsTrigger value="overview">Overview</TabsTrigger>
-                  <TabsTrigger value="stats">Stats</TabsTrigger>
-                  <TabsTrigger value="media">Media</TabsTrigger>
-                  <TabsTrigger value="academic">Academic</TabsTrigger>
-                  <TabsTrigger value="recruiting">Recruiting</TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="overview" className="space-y-6">
-                  {/* Player Bio */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle>About Me</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-700 leading-relaxed mb-4">{athlete.bio}</p>
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <h4 className="font-semibold text-blue-900 mb-2">Why I Want to Play at the Next Level</h4>
-                        <p className="text-blue-800">{athlete.whyCollege}</p>
+                  <h2 className="text-lg font-bold text-gray-900">{athlete.name}</h2>
+                  <p className="text-sm text-gray-600">{athlete.sport} • Grad Year: {athlete.gradYear}</p>
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.colleges}</div>
+                    <div className="text-xs text-gray-500">Interested Colleges</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.coaches}</div>
+                    <div className="text-xs text-gray-500">Coaches Reached Out</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.offers}</div>
+                    <div className="text-xs text-gray-500">Offers Received</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.visits}</div>
+                    <div className="text-xs text-gray-500">Campus Visits</div>
+                  </div>
+                </div>
+
+                {/* Profile Actions */}
+                <div className="space-y-2">
+                  <h3 className="font-semibold text-gray-900 mb-3">Profile Actions</h3>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-sm text-gray-600">Privacy Position</span>
+                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-sm text-gray-600">Free School/Loans</span>
+                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-sm text-gray-600">Videos</span>
+                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-sm text-gray-600">Coach Reference</span>
+                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                  </div>
+                </div>
+
+                {/* Favorites */}
+                <div className="mt-6">
+                  <h3 className="font-semibold text-gray-900 mb-3">Favorites</h3>
+                  <div className="flex items-center justify-center py-8">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Star className="w-6 h-6 text-gray-400" />
                       </div>
-                    </CardContent>
-                  </Card>
-                  
-                  {/* Upcoming Schedule */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CalendarDays className="w-5 h-5" />
-                        Upcoming Games & Events
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        {athlete.upcomingGames.map((game, index) => (
-                          <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                            <div>
-                              <p className="font-medium">{game.opponent}</p>
-                              <div className="flex items-center gap-4 text-sm text-gray-600">
-                                <span className="flex items-center gap-1">
-                                  <Calendar className="w-4 h-4" />
-                                  {new Date(game.date).toLocaleDateString()}
-                                </span>
-                                <span className="flex items-center gap-1">
-                                  <Clock className="w-4 h-4" />
-                                  {game.time}
-                                </span>
-                                <span className="flex items-center gap-1">
-                                  <MapPin className="w-4 h-4" />
-                                  {game.location}
-                                </span>
-                              </div>
+                      <p className="text-sm text-gray-500">Add New Favorite</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Main Content Area - Activity Feed */}
+          <div className="lg:col-span-6">
+            <div className="space-y-6">
+              
+              {/* Feed Header */}
+              <div className="bg-white rounded-lg shadow-sm p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h1 className="text-xl font-bold text-gray-900">My Feed - Global Feed</h1>
+                  </div>
+                  <Button variant="outline" size="sm">
+                    <Settings className="w-4 h-4 mr-2" />
+                    Settings
+                  </Button>
+                </div>
+              </div>
+
+              {/* Activity Feed */}
+              {recruitmentActivity.map((activity) => (
+                <Card key={activity.id} className="bg-white shadow-sm">
+                  <CardContent className="p-6">
+                    
+                    {activity.type === "coach_message" && (
+                      <div>
+                        <div className="flex items-start gap-4 mb-4">
+                          <img 
+                            src={activity.logo} 
+                            alt={activity.college}
+                            className="w-12 h-12 rounded-lg"
+                          />
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-semibold text-gray-900">{activity.college}</span>
+                              <span className="text-sm text-gray-500">{activity.message}</span>
                             </div>
-                            <Button variant="outline" size="sm">
-                              <Eye className="w-4 h-4 mr-1" />
-                              Watch
+                            <div className="text-sm text-gray-500 mb-2">
+                              Location: {activity.location}
+                            </div>
+                            <Button variant="link" className="text-blue-600 p-0 h-auto">
+                              {activity.program}
                             </Button>
                           </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="stats" className="space-y-6">
-                  {/* Season Stats */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle>Season Statistics</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="overflow-x-auto">
-                        <table className="w-full">
-                          <thead>
-                            <tr className="border-b">
-                              <th className="text-left p-2">Year</th>
-                              <th className="text-left p-2">Team</th>
-                              <th className="text-left p-2">Kills</th>
-                              <th className="text-left p-2">Blocks</th>
-                              <th className="text-left p-2">Aces</th>
-                              <th className="text-left p-2">Assists</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {athlete.seasonStats.map((season, index) => (
-                              <tr key={index} className="border-b">
-                                <td className="p-2 font-medium">{season.year}</td>
-                                <td className="p-2">{season.team}</td>
-                                <td className="p-2">{season.kills}</td>
-                                <td className="p-2">{season.blocks}</td>
-                                <td className="p-2">{season.aces}</td>
-                                <td className="p-2">{season.assists}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  
-                  {/* Athletic Awards */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Trophy className="w-5 h-5 text-yellow-600" />
-                        Athletic Awards & Achievements
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        {athlete.athleticAwards.map((award, index) => (
-                          <div key={index} className="flex items-center gap-2 p-2 bg-yellow-50 rounded-lg">
-                            <Award className="w-4 h-4 text-yellow-600" />
-                            <span className="text-sm">{award}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="media" className="space-y-6">
-                  {/* Highlight Videos */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Video className="w-5 h-5 text-red-600" />
-                        Highlight Videos
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {athlete.highlights.map((video, index) => (
-                          <div key={index} className="relative bg-gray-100 rounded-lg overflow-hidden">
-                            <img
-                              src={video.thumbnail}
-                              alt={video.title}
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                              <div className="text-center text-white">
-                                <PlayCircle className="w-8 h-8 mx-auto mb-1 cursor-pointer hover:scale-110 transition-transform" />
-                                <p className="text-sm font-medium">{video.title}</p>
-                                <p className="text-xs opacity-90">{video.duration}</p>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                  
-                  {/* Action Photos */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Camera className="w-5 h-5 text-blue-600" />
-                        Action Photos
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {athlete.actionPhotos.map((photo, index) => (
-                          <div key={index} className="relative rounded-lg overflow-hidden">
-                            <img
-                              src={photo}
-                              alt={`Action photo ${index + 1}`}
-                              className="w-full h-32 object-cover hover:scale-105 transition-transform cursor-pointer"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="academic" className="space-y-6">
-                  {/* Academic Performance */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <BookOpen className="w-5 h-5 text-green-600" />
-                        Academic Performance
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid md:grid-cols-3 gap-4 mb-6">
-                        <div className="bg-green-50 p-4 rounded-lg text-center">
-                          <div className="text-2xl font-bold text-green-600">{athlete.gpa}</div>
-                          <div className="text-sm text-green-700">GPA</div>
+                          <div className="text-sm text-gray-400">{activity.timestamp}</div>
                         </div>
-                        <div className="bg-blue-50 p-4 rounded-lg text-center">
-                          <div className="text-2xl font-bold text-blue-600">{athlete.satScore}</div>
-                          <div className="text-sm text-blue-700">SAT Score</div>
-                        </div>
-                        <div className="bg-purple-50 p-4 rounded-lg text-center">
-                          <div className="text-2xl font-bold text-purple-600">{athlete.actScore}</div>
-                          <div className="text-sm text-purple-700">ACT Score</div>
+                        
+                        <div className="flex items-center gap-4 pt-4 border-t">
+                          <Button variant="ghost" size="sm">
+                            <MessageCircle className="w-4 h-4 mr-2" />
+                            Message
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Heart className="w-4 h-4 mr-2" />
+                            Like
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Share2 className="w-4 h-4 mr-2" />
+                            Share
+                          </Button>
                         </div>
                       </div>
-                      
-                      <div className="space-y-4">
-                        <div>
-                          <h4 className="font-semibold mb-2">Advanced Coursework</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {athlete.advancedClasses.map((course, index) => (
-                              <Badge key={index} variant="outline">{course}</Badge>
-                            ))}
+                    )}
+
+                    {activity.type === "video_highlight" && (
+                      <div>
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                            <User className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-semibold text-gray-900 mb-1">{activity.athlete}</div>
+                            <div className="text-sm text-gray-500">uploaded a video • {activity.timestamp}</div>
                           </div>
                         </div>
                         
-                        <div>
-                          <h4 className="font-semibold mb-2">Academic Honors</h4>
-                          <div className="space-y-2">
-                            {athlete.academicAwards.map((award, index) => (
-                              <div key={index} className="flex items-center gap-2 p-2 bg-green-50 rounded-lg">
-                                <Star className="w-4 h-4 text-green-600" />
-                                <span className="text-sm">{award}</span>
-                              </div>
-                            ))}
+                        <div className="relative mb-4">
+                          <img 
+                            src={activity.thumbnail} 
+                            alt={activity.title}
+                            className="w-full h-64 object-cover rounded-lg"
+                          />
+                          <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg flex items-center justify-center">
+                            <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
+                              <Play className="w-8 h-8 text-gray-900 ml-1" />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h3 className="font-semibold text-gray-900 mb-2">{activity.title}</h3>
+                        </div>
+                        
+                        <div className="flex items-center gap-6 text-sm text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <Eye className="w-4 h-4" />
+                            {activity.views.toLocaleString()} views
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Heart className="w-4 h-4" />
+                            {activity.likes} likes
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MessageCircle className="w-4 h-4" />
+                            {activity.comments} comments
                           </div>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="recruiting" className="space-y-6">
-                  {/* Recruiting Status */}
-                  <Card className="bg-white shadow-sm border-0">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Target className="w-5 h-5 text-blue-600" />
-                        Recruiting Status
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="mb-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="font-medium">Status:</span>
-                          <Badge className={athlete.recruitingStatus.committed ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}>
-                            {athlete.recruitingStatus.committed ? "Committed" : "Actively Recruiting"}
-                          </Badge>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+
+              {/* Upgrade Today Section */}
+              <Card className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4">Upgrade Today!</h3>
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-sm">See who's viewing you</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-sm">Access to every college coach</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-sm">Dedicated recruiting analyst</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-sm">Professional video support</span>
+                    </div>
+                  </div>
+                  <Button className="bg-white text-blue-600 hover:bg-gray-100">
+                    Upgrade Now!
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Right Sidebar */}
+          <div className="lg:col-span-3">
+            <div className="space-y-6">
+              
+              {/* Verification Progress */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold">My Verification Progress</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {Object.entries(athlete.verificationProgress).map(([key, item]) => (
+                      <div key={key} className="flex items-center gap-3">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center ${
+                          item.completed ? 'bg-green-500' : 'bg-gray-300'
+                        }`}>
+                          {item.completed && <span className="text-white text-xs">✓</span>}
                         </div>
+                        <span className="text-sm text-gray-600">{item.text}</span>
                       </div>
-                      
+                    ))}
+                  </div>
+                  <div className="mt-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-gray-600">Profile Completion</span>
+                      <span className="text-sm font-medium">{athlete.profileCompletion}%</span>
+                    </div>
+                    <Progress value={athlete.profileCompletion} className="h-2" />
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Important Notices */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold">Important Notices</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Bell className="w-5 h-5 text-orange-500 mt-0.5" />
                       <div>
-                        <h4 className="font-semibold mb-3">College Interest & Offers</h4>
-                        <div className="space-y-3">
-                          {athlete.recruitingStatus.offers.map((offer, index) => (
-                            <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                              <div>
-                                <p className="font-medium">{offer.school}</p>
-                                <p className="text-sm text-gray-600">
-                                  {offer.status} • {new Date(offer.date).toLocaleDateString()}
-                                </p>
-                              </div>
-                              <Badge 
-                                className={
-                                  offer.status === "Offer" ? "bg-green-100 text-green-800" :
-                                  offer.status === "Interest" ? "bg-yellow-100 text-yellow-800" :
-                                  "bg-blue-100 text-blue-800"
-                                }
-                              >
-                                {offer.status}
-                              </Badge>
-                            </div>
-                          ))}
+                        <div className="font-medium text-gray-900 mb-1">Learn about NCAA colleges</div>
+                        <div className="text-sm text-gray-600">
+                          Our college matching tool uses your preferences to match you with colleges that fit your scholarships. Check it out today!
                         </div>
                       </div>
-                      
-                      <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Contact className="w-4 h-4 text-blue-600" />
-                          <span className="font-medium text-blue-900">Ready to Connect</span>
-                        </div>
-                        <p className="text-sm text-blue-800">
-                          Emma is actively seeking college opportunities and welcomes contact from coaches and recruiters.
-                        </p>
-                        <div className="flex gap-2 mt-3">
-                          <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                            Request Transcript
-                          </Button>
-                          <Button size="sm" variant="outline">
-                            Schedule Call
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* NCAA Resource Guide */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold">NCAA Resource Guide</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <Button variant="ghost" className="w-full justify-start p-0">
+                      <Award className="w-4 h-4 mr-2" />
+                      Eligibility Center
+                    </Button>
+                    <Button variant="ghost" className="w-full justify-start p-0">
+                      <Video className="w-4 h-4 mr-2" />
+                      Recruiting Planning Video
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* IMG Academy */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold">IMG ACADEMY</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-center">
+                    <div className="w-full h-32 bg-gray-100 rounded-lg flex items-center justify-center mb-3">
+                      <img 
+                        src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=200&h=120&fit=crop" 
+                        alt="IMG Academy"
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                      Schedule Assessment
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -710,13 +410,5 @@ export default function AthleteProfile() {
       
       <Footer />
     </div>
-  );
-}
-
-function ArrowRight({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
   );
 }
