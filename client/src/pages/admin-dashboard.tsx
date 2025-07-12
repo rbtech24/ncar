@@ -313,11 +313,13 @@ export default function AdminDashboard() {
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8">
+          <TabsList className="grid w-full grid-cols-4 lg:grid-cols-10">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="users">Users</TabsTrigger>
             <TabsTrigger value="content">Content</TabsTrigger>
             <TabsTrigger value="ai">AI Tools</TabsTrigger>
+            <TabsTrigger value="api">API</TabsTrigger>
+            <TabsTrigger value="payments">Payments</TabsTrigger>
             <TabsTrigger value="compliance">Compliance</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="financial">Financial</TabsTrigger>
@@ -563,6 +565,80 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Bulk User Operations */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Bulk Operations</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="p-4 border rounded-lg">
+                    <Upload className="w-8 h-8 text-blue-500 mb-2" />
+                    <h4 className="font-medium text-gray-900">Import Users</h4>
+                    <p className="text-sm text-gray-600 mb-3">Bulk import from CSV/Excel</p>
+                    <Button variant="outline" size="sm" className="w-full">
+                      Upload File
+                    </Button>
+                  </div>
+                  <div className="p-4 border rounded-lg">
+                    <Download className="w-8 h-8 text-green-500 mb-2" />
+                    <h4 className="font-medium text-gray-900">Export Users</h4>
+                    <p className="text-sm text-gray-600 mb-3">Export user data to CSV</p>
+                    <Button variant="outline" size="sm" className="w-full">
+                      Download CSV
+                    </Button>
+                  </div>
+                  <div className="p-4 border rounded-lg">
+                    <Mail className="w-8 h-8 text-purple-500 mb-2" />
+                    <h4 className="font-medium text-gray-900">Mass Email</h4>
+                    <p className="text-sm text-gray-600 mb-3">Send emails to user groups</p>
+                    <Button variant="outline" size="sm" className="w-full">
+                      Compose Email
+                    </Button>
+                  </div>
+                  <div className="p-4 border rounded-lg">
+                    <UserX className="w-8 h-8 text-red-500 mb-2" />
+                    <h4 className="font-medium text-gray-900">Bulk Actions</h4>
+                    <p className="text-sm text-gray-600 mb-3">Suspend/activate users</p>
+                    <Button variant="outline" size="sm" className="w-full">
+                      Manage Status
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* User Analytics */}
+            <Card>
+              <CardHeader>
+                <CardTitle>User Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <TrendingUp className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-blue-600">+12%</div>
+                    <div className="text-sm text-blue-800">Monthly Growth</div>
+                  </div>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <Users className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-green-600">89%</div>
+                    <div className="text-sm text-green-800">Active Users</div>
+                  </div>
+                  <div className="text-center p-4 bg-purple-50 rounded-lg">
+                    <Award className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-purple-600">87%</div>
+                    <div className="text-sm text-purple-800">Profile Completion</div>
+                  </div>
+                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                    <Heart className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-orange-600">4.8</div>
+                    <div className="text-sm text-orange-800">Satisfaction Score</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           <TabsContent value="compliance" className="space-y-6">
@@ -709,6 +785,251 @@ export default function AdminDashboard() {
                     <Button variant="outline" size="sm">
                       Manage Uploads
                     </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="api" className="space-y-6">
+            {/* API Management */}
+            <Card>
+              <CardHeader>
+                <CardTitle>API Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <Globe className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-blue-600">2.3M</div>
+                    <div className="text-sm text-blue-800">Monthly API Calls</div>
+                  </div>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <Key className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-green-600">147</div>
+                    <div className="text-sm text-green-800">Active API Keys</div>
+                  </div>
+                  <div className="text-center p-4 bg-purple-50 rounded-lg">
+                    <Zap className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-purple-600">99.9%</div>
+                    <div className="text-sm text-purple-800">API Uptime</div>
+                  </div>
+                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                    <RefreshCw className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-orange-600">125ms</div>
+                    <div className="text-sm text-orange-800">Avg Response Time</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Globe className="w-5 h-5 text-blue-500" />
+                      <div>
+                        <p className="font-medium">Public API</p>
+                        <p className="text-sm text-gray-600">External developer access to platform data</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-green-100 text-green-800">Active</Badge>
+                      <Button variant="outline" size="sm">
+                        Manage
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Key className="w-5 h-5 text-purple-500" />
+                      <div>
+                        <p className="font-medium">API Keys</p>
+                        <p className="text-sm text-gray-600">Manage developer API keys and rate limits</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-gray-600">147 active</span>
+                      <Button variant="outline" size="sm">
+                        View All
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <BarChart3 className="w-5 h-5 text-green-500" />
+                      <div>
+                        <p className="font-medium">Rate Limiting</p>
+                        <p className="text-sm text-gray-600">Configure API rate limits and throttling</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-blue-100 text-blue-800">Configured</Badge>
+                      <Button variant="outline" size="sm">
+                        Configure
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <FileText className="w-5 h-5 text-orange-500" />
+                      <div>
+                        <p className="font-medium">API Documentation</p>
+                        <p className="text-sm text-gray-600">Manage API documentation and examples</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-green-100 text-green-800">Updated</Badge>
+                      <Button variant="outline" size="sm">
+                        Edit Docs
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="payments" className="space-y-6">
+            {/* Payment Management */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Payment Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-blue-600">$89,247</div>
+                    <div className="text-sm text-blue-800">Monthly Revenue</div>
+                  </div>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-green-600">98.7%</div>
+                    <div className="text-sm text-green-800">Success Rate</div>
+                  </div>
+                  <div className="text-center p-4 bg-purple-50 rounded-lg">
+                    <RefreshCw className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-purple-600">23</div>
+                    <div className="text-sm text-purple-800">Failed Payments</div>
+                  </div>
+                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                    <Ban className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-orange-600">7</div>
+                    <div className="text-sm text-orange-800">Chargebacks</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <DollarSign className="w-5 h-5 text-blue-500" />
+                      <div>
+                        <p className="font-medium">Payment Processing</p>
+                        <p className="text-sm text-gray-600">Stripe payment gateway integration</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-green-100 text-green-800">Connected</Badge>
+                      <Button variant="outline" size="sm">
+                        Configure
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <RefreshCw className="w-5 h-5 text-purple-500" />
+                      <div>
+                        <p className="font-medium">Subscription Management</p>
+                        <p className="text-sm text-gray-600">Handle recurring payments and cancellations</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-gray-600">8,234 active</span>
+                      <Button variant="outline" size="sm">
+                        Manage
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <AlertTriangle className="w-5 h-5 text-orange-500" />
+                      <div>
+                        <p className="font-medium">Failed Payments</p>
+                        <p className="text-sm text-gray-600">Handle failed payments and retry logic</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-orange-100 text-orange-800">23 pending</Badge>
+                      <Button variant="outline" size="sm">
+                        Review
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <FileText className="w-5 h-5 text-green-500" />
+                      <div>
+                        <p className="font-medium">Invoicing</p>
+                        <p className="text-sm text-gray-600">Generate and send invoices to customers</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-blue-100 text-blue-800">Automated</Badge>
+                      <Button variant="outline" size="sm">
+                        Configure
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Payment Analytics */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Payment Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-3">Revenue Breakdown</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Premium Athletes</span>
+                        <span className="text-sm font-medium">$34,567 (39%)</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Coach Pro Plans</span>
+                        <span className="text-sm font-medium">$28,340 (32%)</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Club Subscriptions</span>
+                        <span className="text-sm font-medium">$19,240 (21%)</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">One-time Purchases</span>
+                        <span className="text-sm font-medium">$7,100 (8%)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-3">Payment Methods</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Credit Card</span>
+                        <span className="text-sm font-medium">78%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">PayPal</span>
+                        <span className="text-sm font-medium">15%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Bank Transfer</span>
+                        <span className="text-sm font-medium">5%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Other</span>
+                        <span className="text-sm font-medium">2%</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </CardContent>
