@@ -60,63 +60,33 @@ export default function AthleteProfile() {
   const recruitmentActivity = [
     {
       id: 1,
-      type: "coach_message",
-      college: "Bryant University",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
-      message: "sent a message to in 2027 Athlete",
-      location: "Smithfield, Rhode Island",
-      program: "View Basketball Program",
+      type: "system_milestone",
+      milestone: "25,000 athletes recruited this year",
+      description: "NCAR celebrates another successful recruiting season with athletes finding their perfect college matches",
       timestamp: "2 hours ago",
-      coachName: "Coach Williams",
-      division: "Division I"
+      icon: "trophy",
+      stats: "25,000 athletes placed"
     },
     {
       id: 2,
-      type: "coach_message", 
-      college: "University of South Alabama",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
-      message: "sent a message to in 2027 Athlete",
-      location: "Mobile, Alabama",
-      program: "View Basketball Program",
-      timestamp: "1 day ago",
-      coachName: "Coach Johnson",
-      division: "Division I"
+      type: "peer_achievement",
+      athlete: "Jordan Martinez",
+      achievement: "Committed to Duke University",
+      sport: "Basketball",
+      gradYear: "2024",
+      timestamp: "4 hours ago",
+      likes: 234,
+      comments: 48,
+      location: "Los Angeles, CA"
     },
     {
       id: 3,
-      type: "coach_message",
-      college: "Colorado State University",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
-      message: "sent a message to in 2027 Athletes",
-      location: "Fort Collins, Colorado",
-      program: "View Basketball Program",
-      timestamp: "2 days ago",
-      coachName: "Coach Martinez",
-      division: "Division I"
-    },
-    {
-      id: 4,
-      type: "coach_message",
-      college: "Boston College",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
-      message: "sent a message to in 2027 Athlete",
-      location: "Chestnut Hill, Massachusetts",
-      program: "View Basketball Program",
-      timestamp: "3 days ago",
-      coachName: "Coach Davis",
-      division: "Division I"
-    },
-    {
-      id: 5,
-      type: "coach_message",
-      college: "West Virginia University",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
-      message: "sent a message to in 2027 Athlete",
-      location: "Morgantown, West Virginia",
-      program: "View Basketball Program",
-      timestamp: "4 days ago",
-      coachName: "Coach Thompson",
-      division: "Division I"
+      type: "platform_success",
+      title: "NCAR Platform Update",
+      description: "Over 1,200 Division I coaches are now actively recruiting through NCAR",
+      timestamp: "1 day ago",
+      icon: "users",
+      stats: "1,200+ D1 coaches"
     },
     {
       id: 6,
@@ -170,15 +140,36 @@ export default function AthleteProfile() {
     },
     {
       id: 10,
-      type: "coach_message",
-      college: "Colorado School of Mines",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
-      message: "sent a message to in 2027 Athlete",
-      location: "Golden, Colorado",
-      program: "View Basketball Program",
+      type: "peer_achievement",
+      athlete: "Alex Kim",
+      achievement: "Received full scholarship to Stanford University",
+      sport: "Swimming",
+      gradYear: "2024",
       timestamp: "1 week ago",
-      coachName: "Coach Wilson",
-      division: "Division II"
+      likes: 312,
+      comments: 67,
+      location: "Seattle, WA"
+    },
+    {
+      id: 11,
+      type: "system_milestone",
+      milestone: "500+ college commitments this month",
+      description: "NCAR athletes are securing their futures with record-breaking commitment numbers",
+      timestamp: "3 days ago",
+      icon: "star",
+      stats: "500+ commitments"
+    },
+    {
+      id: 12,
+      type: "peer_achievement",
+      athlete: "Maya Patel",
+      achievement: "Named All-American in Track & Field",
+      sport: "Track & Field",
+      gradYear: "2025",
+      timestamp: "5 days ago",
+      likes: 189,
+      comments: 34,
+      location: "Phoenix, AZ"
     }
   ];
 
@@ -210,25 +201,31 @@ export default function AthleteProfile() {
                 </div>
 
                 {/* Stats */}
-                <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600 mb-1">8</div>
-                      <div className="text-sm text-gray-700 font-medium">Colleges Interested</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-600 mb-1">12</div>
-                      <div className="text-sm text-gray-700 font-medium">Coach Messages</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-600 mb-1">3</div>
-                      <div className="text-sm text-gray-700 font-medium">Video Highlights</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-1">5.2K</div>
-                      <div className="text-sm text-gray-700 font-medium">Profile Views</div>
-                    </div>
-                  </div>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  <Card className="bg-white shadow-sm border-0 hover:shadow-md transition-shadow">
+                    <CardContent className="p-4 text-center">
+                      <div className="text-2xl font-bold text-blue-600 mb-1">8</div>
+                      <div className="text-xs text-gray-600 leading-tight">Colleges<br/>Interested</div>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-white shadow-sm border-0 hover:shadow-md transition-shadow">
+                    <CardContent className="p-4 text-center">
+                      <div className="text-2xl font-bold text-green-600 mb-1">12</div>
+                      <div className="text-xs text-gray-600 leading-tight">Coach<br/>Messages</div>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-white shadow-sm border-0 hover:shadow-md transition-shadow">
+                    <CardContent className="p-4 text-center">
+                      <div className="text-2xl font-bold text-purple-600 mb-1">3</div>
+                      <div className="text-xs text-gray-600 leading-tight">Video<br/>Highlights</div>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-white shadow-sm border-0 hover:shadow-md transition-shadow">
+                    <CardContent className="p-4 text-center">
+                      <div className="text-2xl font-bold text-orange-600 mb-1">5.2K</div>
+                      <div className="text-xs text-gray-600 leading-tight">Profile<br/>Views</div>
+                    </CardContent>
+                  </Card>
                 </div>
 
                 {/* Recent Activity Badge */}
@@ -366,77 +363,78 @@ export default function AthleteProfile() {
                   <Card className="bg-white shadow-sm">
                     <CardContent className="p-6">
                       
-                      {activity.type === "coach_message" && (
+                      {activity.type === "system_milestone" && (
                         <div>
                           <div className="flex items-start gap-4 mb-4">
-                            <img 
-                              src={activity.logo} 
-                              alt={activity.college}
-                              className="w-12 h-12 rounded-lg"
-                            />
+                            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                              <Trophy className="w-6 h-6 text-white" />
+                            </div>
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
-                                <span className="font-semibold text-gray-900">
-                                  {activity.college.split(' ').slice(0, 2).join(' ')}
-                                  {activity.college.split(' ').length > 2 && '...'}
-                                </span>
-                                <span className="text-sm text-gray-500">{activity.message}</span>
-                                <Badge variant="secondary" className="text-xs">
-                                  {activity.division}
+                                <span className="font-semibold text-gray-900">NCAR Platform</span>
+                                <Badge variant="outline" className="text-xs bg-blue-50 text-blue-700">
+                                  System Update
                                 </Badge>
                               </div>
-                              <div className="text-sm text-gray-500 mb-2">
-                                Location: {activity.location.split(',')[0]}...
-                              </div>
-                              <div className="text-sm text-gray-600 mb-2">
-                                From: Coach {activity.coachName.split(' ')[1] || activity.coachName}
-                              </div>
-                              <Button variant="link" className="text-blue-600 p-0 h-auto">
-                                {activity.program}
-                              </Button>
-                            </div>
-                            <div className="text-sm text-gray-400">{activity.timestamp}</div>
-                          </div>
-                          
-                          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                            <div className="flex items-start gap-2">
-                              <MessageCircle className="w-5 h-5 text-blue-600 mt-0.5" />
-                              <div className="flex-1">
-                                <p className="text-sm text-blue-900 font-medium mb-1">Coach Message Preview</p>
-                                <p className="text-sm text-blue-800 mb-3">
-                                  "Hi Rod! I've been following your highlights and I'm impressed with your court vision and defensive intensity. We'd love to learn more about your acade..."
-                                </p>
-                                <div className="bg-white border border-blue-300 rounded-lg p-3">
-                                  <div className="flex items-center justify-between">
-                                    <span className="text-sm font-medium text-blue-900">
-                                      🔒 Upgrade to view full message
-                                    </span>
-                                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
-                                      Upgrade Now
-                                    </Button>
-                                  </div>
+                              <div className="text-sm text-gray-500 mb-2">{activity.timestamp}</div>
+                              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-4 mb-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Trophy className="w-5 h-5 text-blue-600" />
+                                  <span className="font-medium text-blue-900">{activity.milestone}</span>
                                 </div>
+                                <p className="text-blue-800 text-sm">{activity.description}</p>
                               </div>
                             </div>
                           </div>
                           
                           <div className="flex items-center gap-4 pt-4 border-t">
                             <Button variant="ghost" size="sm">
-                              <MessageCircle className="w-4 h-4 mr-2" />
-                              Reply
-                            </Button>
-                            <Button variant="ghost" size="sm">
                               <Heart className="w-4 h-4 mr-2" />
-                              Like
+                              Celebrate
                             </Button>
                             <Button variant="ghost" size="sm">
                               <Share2 className="w-4 h-4 mr-2" />
                               Share
                             </Button>
+                            <span className="text-sm text-gray-500 ml-auto">{activity.stats}</span>
+                          </div>
+                        </div>
+                      )}
+
+                      {activity.type === "platform_success" && (
+                        <div>
+                          <div className="flex items-start gap-4 mb-4">
+                            <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center">
+                              <Users className="w-6 h-6 text-white" />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="font-semibold text-gray-900">NCAR Platform</span>
+                                <Badge variant="outline" className="text-xs bg-green-50 text-green-700">
+                                  Success Story
+                                </Badge>
+                              </div>
+                              <div className="text-sm text-gray-500 mb-2">{activity.timestamp}</div>
+                              <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4 mb-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Users className="w-5 h-5 text-green-600" />
+                                  <span className="font-medium text-green-900">{activity.title}</span>
+                                </div>
+                                <p className="text-green-800 text-sm">{activity.description}</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-4 pt-4 border-t">
                             <Button variant="ghost" size="sm">
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              View School
+                              <Heart className="w-4 h-4 mr-2" />
+                              Amazing
                             </Button>
+                            <Button variant="ghost" size="sm">
+                              <Share2 className="w-4 h-4 mr-2" />
+                              Share
+                            </Button>
+                            <span className="text-sm text-gray-500 ml-auto">{activity.stats}</span>
                           </div>
                         </div>
                       )}
@@ -510,7 +508,9 @@ export default function AthleteProfile() {
                                   {activity.sport} • {activity.gradYear}
                                 </Badge>
                               </div>
-                              <div className="text-sm text-gray-500 mb-2">{activity.timestamp}</div>
+                              <div className="text-sm text-gray-500 mb-2">
+                                {activity.location && `${activity.location} • `}{activity.timestamp}
+                              </div>
                               <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
                                 <div className="flex items-center gap-2 mb-2">
                                   <Trophy className="w-5 h-5 text-green-600" />
