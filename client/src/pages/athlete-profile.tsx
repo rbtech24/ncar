@@ -62,7 +62,9 @@ export default function AthleteProfile() {
       message: "sent a message to in 2027 Athlete",
       location: "Smithfield, Rhode Island",
       program: "View Basketball Program",
-      timestamp: "2 hours ago"
+      timestamp: "2 hours ago",
+      coachName: "Coach Williams",
+      division: "Division I"
     },
     {
       id: 2,
@@ -72,18 +74,81 @@ export default function AthleteProfile() {
       message: "sent a message to in 2027 Athlete",
       location: "Mobile, Alabama",
       program: "View Basketball Program",
-      timestamp: "1 day ago"
+      timestamp: "1 day ago",
+      coachName: "Coach Johnson",
+      division: "Division I"
     },
     {
       id: 3,
-      type: "video_highlight",
-      athlete: "Jacqueline Harbison",
-      title: "Defensive Work - Jill Harbison",
-      views: 1240,
-      likes: 89,
-      comments: 12,
+      type: "coach_message",
+      college: "Colorado State University",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
+      message: "sent a message to in 2027 Athletes",
+      location: "Fort Collins, Colorado",
+      program: "View Basketball Program",
+      timestamp: "2 days ago",
+      coachName: "Coach Martinez",
+      division: "Division I"
+    },
+    {
+      id: 4,
+      type: "coach_message",
+      college: "Boston College",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
+      message: "sent a message to in 2027 Athlete",
+      location: "Chestnut Hill, Massachusetts",
+      program: "View Basketball Program",
       timestamp: "3 days ago",
-      thumbnail: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop"
+      coachName: "Coach Davis",
+      division: "Division I"
+    },
+    {
+      id: 5,
+      type: "coach_message",
+      college: "West Virginia University",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
+      message: "sent a message to in 2027 Athlete",
+      location: "Morgantown, West Virginia",
+      program: "View Basketball Program",
+      timestamp: "4 days ago",
+      coachName: "Coach Thompson",
+      division: "Division I"
+    },
+    {
+      id: 6,
+      type: "video_highlight",
+      athlete: "Rod Burnett",
+      title: "2024 Rod Burnett Basketball Season Highlights",
+      views: 3247,
+      likes: 156,
+      comments: 34,
+      timestamp: "5 days ago",
+      thumbnail: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop",
+      duration: "3:24"
+    },
+    {
+      id: 7,
+      type: "video_highlight",
+      athlete: "Rod Burnett",
+      title: "Defensive Highlights - Summer League",
+      views: 2156,
+      likes: 98,
+      comments: 23,
+      timestamp: "1 week ago",
+      thumbnail: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop",
+      duration: "2:18"
+    },
+    {
+      id: 8,
+      type: "coach_message",
+      college: "Colorado School of Mines",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
+      message: "sent a message to in 2027 Athlete",
+      location: "Golden, Colorado",
+      program: "View Basketball Program",
+      timestamp: "1 week ago",
+      coachName: "Coach Wilson",
+      division: "Division II"
     }
   ];
 
@@ -117,20 +182,28 @@ export default function AthleteProfile() {
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.colleges}</div>
-                    <div className="text-xs text-gray-500">Interested Colleges</div>
+                    <div className="text-2xl font-bold text-blue-600">8</div>
+                    <div className="text-xs text-gray-500">Colleges Interested</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.coaches}</div>
-                    <div className="text-xs text-gray-500">Coaches Reached Out</div>
+                    <div className="text-2xl font-bold text-green-600">12</div>
+                    <div className="text-xs text-gray-500">Coach Messages</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.offers}</div>
-                    <div className="text-xs text-gray-500">Offers Received</div>
+                    <div className="text-2xl font-bold text-purple-600">3</div>
+                    <div className="text-xs text-gray-500">Video Highlights</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">{athlete.stats.visits}</div>
-                    <div className="text-xs text-gray-500">Campus Visits</div>
+                    <div className="text-2xl font-bold text-orange-600">5.2K</div>
+                    <div className="text-xs text-gray-500">Profile Views</div>
+                  </div>
+                </div>
+
+                {/* Recent Activity Badge */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 p-3 bg-green-50 border border-green-200 rounded-lg">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-green-800">8 new coach messages this week</span>
                   </div>
                 </div>
 
@@ -152,6 +225,25 @@ export default function AthleteProfile() {
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-gray-600">Coach Reference</span>
                     <ChevronDown className="w-4 h-4 text-gray-400" />
+                  </div>
+                </div>
+
+                {/* Recent Achievements */}
+                <div className="mt-6">
+                  <h3 className="font-semibold text-gray-900 mb-3">Recent Achievements</h3>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 p-2 bg-yellow-50 border border-yellow-200 rounded-lg">
+                      <Trophy className="w-4 h-4 text-yellow-600" />
+                      <span className="text-sm text-yellow-800">State Championship Finalist</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-blue-50 border border-blue-200 rounded-lg">
+                      <Award className="w-4 h-4 text-blue-600" />
+                      <span className="text-sm text-blue-800">All-Conference Team</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-green-50 border border-green-200 rounded-lg">
+                      <Star className="w-4 h-4 text-green-600" />
+                      <span className="text-sm text-green-800">Team Captain</span>
+                    </div>
                   </div>
                 </div>
 
@@ -188,6 +280,24 @@ export default function AthleteProfile() {
                 </div>
               </div>
 
+              {/* Recent Activity Alert */}
+              <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                    <Bell className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-gray-900">🔥 High Activity Week!</div>
+                    <div className="text-sm text-gray-600">
+                      You've received 8 new messages from Division I coaches in the last 7 days. Your profile is gaining momentum!
+                    </div>
+                  </div>
+                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                    View All
+                  </Button>
+                </div>
+              </div>
+
               {/* Activity Feed */}
               {recruitmentActivity.map((activity) => (
                 <Card key={activity.id} className="bg-white shadow-sm">
@@ -205,9 +315,15 @@ export default function AthleteProfile() {
                             <div className="flex items-center gap-2 mb-1">
                               <span className="font-semibold text-gray-900">{activity.college}</span>
                               <span className="text-sm text-gray-500">{activity.message}</span>
+                              <Badge variant="secondary" className="text-xs">
+                                {activity.division}
+                              </Badge>
                             </div>
                             <div className="text-sm text-gray-500 mb-2">
                               Location: {activity.location}
+                            </div>
+                            <div className="text-sm text-gray-600 mb-2">
+                              From: {activity.coachName}
                             </div>
                             <Button variant="link" className="text-blue-600 p-0 h-auto">
                               {activity.program}
@@ -216,10 +332,22 @@ export default function AthleteProfile() {
                           <div className="text-sm text-gray-400">{activity.timestamp}</div>
                         </div>
                         
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                          <div className="flex items-start gap-2">
+                            <MessageCircle className="w-5 h-5 text-blue-600 mt-0.5" />
+                            <div>
+                              <p className="text-sm text-blue-900 font-medium mb-1">Coach Message Preview</p>
+                              <p className="text-sm text-blue-800">
+                                "Hi Rod! I've been following your highlights and I'm impressed with your court vision and defensive intensity. We'd love to learn more about your academic interests and discuss how you might fit into our program..."
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        
                         <div className="flex items-center gap-4 pt-4 border-t">
                           <Button variant="ghost" size="sm">
                             <MessageCircle className="w-4 h-4 mr-2" />
-                            Message
+                            Reply
                           </Button>
                           <Button variant="ghost" size="sm">
                             <Heart className="w-4 h-4 mr-2" />
@@ -228,6 +356,10 @@ export default function AthleteProfile() {
                           <Button variant="ghost" size="sm">
                             <Share2 className="w-4 h-4 mr-2" />
                             Share
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            View School
                           </Button>
                         </div>
                       </div>
@@ -256,6 +388,11 @@ export default function AthleteProfile() {
                               <Play className="w-8 h-8 text-gray-900 ml-1" />
                             </div>
                           </div>
+                          {activity.duration && (
+                            <div className="absolute bottom-3 right-3 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                              {activity.duration}
+                            </div>
+                          )}
                         </div>
                         
                         <div className="mb-4">
@@ -379,6 +516,38 @@ export default function AthleteProfile() {
                       <Video className="w-4 h-4 mr-2" />
                       Recruiting Planning Video
                     </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Trending Now */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold">Trending Now</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                      <div>
+                        <div className="font-medium text-sm">March Madness Prep</div>
+                        <div className="text-xs text-gray-500">2.3K athletes discussing</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                      <div>
+                        <div className="font-medium text-sm">Transfer Portal Updates</div>
+                        <div className="text-xs text-gray-500">1.8K athletes discussing</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <div>
+                        <div className="font-medium text-sm">Signing Day Stories</div>
+                        <div className="text-xs text-gray-500">1.5K athletes discussing</div>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
