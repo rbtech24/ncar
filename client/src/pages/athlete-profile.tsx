@@ -210,6 +210,37 @@ export default function AthleteProfile() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Action Photos */}
+              <Card className="bg-white border-0 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-bold text-gray-900">ACTION PHOTOS</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 gap-4">
+                    <img 
+                      src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=300&h=200&fit=crop&crop=center"
+                      alt="Volleyball action shot 1"
+                      className="w-full h-32 object-cover rounded-lg"
+                    />
+                    <img 
+                      src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=300&h=200&fit=crop&crop=center"
+                      alt="Volleyball action shot 2"
+                      className="w-full h-32 object-cover rounded-lg"
+                    />
+                    <img 
+                      src="https://images.unsplash.com/photo-1609688669309-fc15db557633?w=300&h=200&fit=crop&crop=center"
+                      alt="Volleyball action shot 3"
+                      className="w-full h-32 object-cover rounded-lg"
+                    />
+                    <img 
+                      src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=300&h=200&fit=crop&crop=center"
+                      alt="Volleyball action shot 4"
+                      className="w-full h-32 object-cover rounded-lg"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Right Column */}
