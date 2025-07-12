@@ -376,17 +376,20 @@ export default function AthleteProfile() {
                             />
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
-                                <span className="font-semibold text-gray-900">{activity.college}</span>
+                                <span className="font-semibold text-gray-900">
+                                  {activity.college.split(' ').slice(0, 2).join(' ')}
+                                  {activity.college.split(' ').length > 2 && '...'}
+                                </span>
                                 <span className="text-sm text-gray-500">{activity.message}</span>
                                 <Badge variant="secondary" className="text-xs">
                                   {activity.division}
                                 </Badge>
                               </div>
                               <div className="text-sm text-gray-500 mb-2">
-                                Location: {activity.location}
+                                Location: {activity.location.split(',')[0]}...
                               </div>
                               <div className="text-sm text-gray-600 mb-2">
-                                From: {activity.coachName}
+                                From: Coach {activity.coachName.split(' ')[1] || activity.coachName}
                               </div>
                               <Button variant="link" className="text-blue-600 p-0 h-auto">
                                 {activity.program}
@@ -401,7 +404,7 @@ export default function AthleteProfile() {
                               <div className="flex-1">
                                 <p className="text-sm text-blue-900 font-medium mb-1">Coach Message Preview</p>
                                 <p className="text-sm text-blue-800 mb-3">
-                                  "Hi Rod! I've been following your highlights and I'm impressed with your court vision and defensive intensity. We'd love to learn more about your academic interests and discuss how you might fit into our program..."
+                                  "Hi Rod! I've been following your highlights and I'm impressed with your court vision and defensive intensity. We'd love to learn more about your acade..."
                                 </p>
                                 <div className="bg-white border border-blue-300 rounded-lg p-3">
                                   <div className="flex items-center justify-between">
