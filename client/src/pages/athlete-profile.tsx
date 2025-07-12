@@ -28,7 +28,14 @@ import {
   Activity,
   School,
   Grid3X3,
-  UserCircle
+  UserCircle,
+  Flame,
+  Target,
+  Zap,
+  Crown,
+  Medal,
+  TrendingUp,
+  Clock
 } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -54,7 +61,28 @@ export default function AthleteProfile() {
       uploadPhoto: { completed: true, text: "Upload your profile photo" },
       addVideo: { completed: true, text: "Add your grads video" },
       fillPosition: { completed: false, text: "Fill out your position" }
-    }
+    },
+    // Gamification elements
+    currentStreak: 7,
+    longestStreak: 12,
+    totalPoints: 2350,
+    level: 5,
+    nextLevelPoints: 3000,
+    weeklyGoal: 5,
+    weeklyProgress: 3,
+    badges: [
+      { name: "Profile Creator", icon: "user", earned: true, description: "Created your first profile" },
+      { name: "Video Star", icon: "video", earned: true, description: "Uploaded 5 highlight videos" },
+      { name: "Streak Master", icon: "flame", earned: true, description: "Maintained 7-day login streak" },
+      { name: "Social Butterfly", icon: "heart", earned: false, description: "Get 50 profile likes" },
+      { name: "Coach Magnet", icon: "target", earned: false, description: "Receive 25 coach messages" }
+    ],
+    dailyTasks: [
+      { task: "Check messages", completed: true, points: 50 },
+      { task: "Update profile", completed: true, points: 100 },
+      { task: "Watch peer videos", completed: false, points: 25 },
+      { task: "Respond to coach", completed: false, points: 200 }
+    ]
   };
 
   const recruitmentActivity = [
@@ -578,6 +606,115 @@ export default function AthleteProfile() {
           <div className="lg:col-span-3">
             <div className="space-y-6">
               
+              {/* Gamification Dashboard */}
+              <Card className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <div className="text-2xl font-bold">{athlete.currentStreak}</div>
+                      <div className="text-sm opacity-90">Day Streak</div>
+                    </div>
+                    <Flame className="w-8 h-8 text-orange-200" />
+                  </div>
+                  <div className="text-xs opacity-75 mb-2">Personal Best: {athlete.longestStreak} days</div>
+                  <div className="text-xs opacity-75">Keep it up! Visit daily to maintain your streak</div>
+                </CardContent>
+              </Card>
+
+              {/* Level & Points */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                    <Crown className="w-5 h-5 text-yellow-500" />
+                    Level {athlete.level}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between text-sm mb-2">
+                        <span>Points: {athlete.totalPoints}</span>
+                        <span>Next: {athlete.nextLevelPoints}</span>
+                      </div>
+                      <Progress value={(athlete.totalPoints / athlete.nextLevelPoints) * 100} className="h-2" />
+                    </div>
+                    <div className="text-center p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg">
+                      <div className="text-sm font-medium text-purple-900">
+                        {athlete.nextLevelPoints - athlete.totalPoints} points to Level {athlete.level + 1}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Daily Tasks */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                    <Target className="w-5 h-5 text-green-500" />
+                    Daily Tasks
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {athlete.dailyTasks.map((task, index) => (
+                      <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
+                            task.completed ? 'bg-green-500' : 'bg-gray-300'
+                          }`}>
+                            {task.completed && <span className="text-white text-xs">✓</span>}
+                          </div>
+                          <span className={`text-sm ${task.completed ? 'line-through text-gray-500' : 'text-gray-700'}`}>
+                            {task.task}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Zap className="w-3 h-3 text-yellow-500" />
+                          <span className="text-xs text-gray-500">+{task.points}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Achievement Badges */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                    <Medal className="w-5 h-5 text-blue-500" />
+                    Achievements
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 gap-3">
+                    {athlete.badges.map((badge, index) => (
+                      <div key={index} className={`text-center p-3 rounded-lg border-2 ${
+                        badge.earned 
+                          ? 'border-green-200 bg-green-50' 
+                          : 'border-gray-200 bg-gray-50'
+                      }`}>
+                        <div className={`w-8 h-8 mx-auto mb-2 rounded-full flex items-center justify-center ${
+                          badge.earned ? 'bg-green-500' : 'bg-gray-300'
+                        }`}>
+                          {badge.icon === 'user' && <User className="w-4 h-4 text-white" />}
+                          {badge.icon === 'video' && <Video className="w-4 h-4 text-white" />}
+                          {badge.icon === 'flame' && <Flame className="w-4 h-4 text-white" />}
+                          {badge.icon === 'heart' && <Heart className="w-4 h-4 text-white" />}
+                          {badge.icon === 'target' && <Target className="w-4 h-4 text-white" />}
+                        </div>
+                        <div className={`text-xs font-medium ${
+                          badge.earned ? 'text-green-700' : 'text-gray-500'
+                        }`}>
+                          {badge.name}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Messaging Center */}
               <Card className="bg-white shadow-sm">
                 <CardHeader>
