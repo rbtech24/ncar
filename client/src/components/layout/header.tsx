@@ -52,15 +52,23 @@ export default function Header() {
               </Link>
             </div>
             <div className="relative group">
-              <Link href="/college-profile" className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
-                Colleges
-              </Link>
-            </div>
-            <div className="relative group">
               <button className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Clubs
                 <ChevronDown className="w-4 h-4" />
               </button>
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-2">
+                  <Link href="/college-profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                    Colleges
+                  </Link>
+                  <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                    Club Teams
+                  </Link>
+                  <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                    Travel Teams
+                  </Link>
+                </div>
+              </div>
             </div>
             <button
               onClick={() => scrollToSection("pricing")}
