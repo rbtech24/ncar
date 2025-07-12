@@ -37,10 +37,9 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-8">
             <div className="relative group">
-              <button className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+              <Link href="/athlete-directory" className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Athletes
-                <ChevronDown className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
             <div className="relative group">
               <button className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
