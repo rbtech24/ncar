@@ -24,7 +24,11 @@ import {
   Video,
   Users,
   Award,
-  ExternalLink
+  ExternalLink,
+  Activity,
+  School,
+  Grid3X3,
+  UserCircle
 } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -292,6 +296,36 @@ export default function AthleteProfile() {
           {/* Main Content Area - Activity Feed */}
           <div className="lg:col-span-6">
             <div className="space-y-6">
+              
+              {/* Navigation Menu */}
+              <div className="bg-gray-900 rounded-lg shadow-sm">
+                <div className="flex items-center justify-around py-3 px-4">
+                  <div className="flex flex-col items-center gap-1 text-white cursor-pointer hover:text-blue-400 transition-colors">
+                    <Activity className="w-5 h-5" />
+                    <span className="text-xs font-medium">Activity</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-gray-400 cursor-pointer hover:text-blue-400 transition-colors">
+                    <UserCircle className="w-5 h-5" />
+                    <span className="text-xs font-medium">Profile</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-gray-400 cursor-pointer hover:text-blue-400 transition-colors">
+                    <MessageCircle className="w-5 h-5" />
+                    <span className="text-xs font-medium">Messages</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-gray-400 cursor-pointer hover:text-blue-400 transition-colors">
+                    <School className="w-5 h-5" />
+                    <span className="text-xs font-medium">Schools</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-gray-400 cursor-pointer hover:text-blue-400 transition-colors">
+                    <Video className="w-5 h-5" />
+                    <span className="text-xs font-medium">Video</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-gray-400 cursor-pointer hover:text-blue-400 transition-colors">
+                    <Grid3X3 className="w-5 h-5" />
+                    <span className="text-xs font-medium">More</span>
+                  </div>
+                </div>
+              </div>
               
               {/* Feed Header */}
               <div className="bg-white rounded-lg shadow-sm p-4">
