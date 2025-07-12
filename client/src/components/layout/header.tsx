@@ -47,6 +47,11 @@ export default function Header() {
               </Link>
             </div>
             <div className="relative group">
+              <Link href="/parent-profile" className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+                Parents
+              </Link>
+            </div>
+            <div className="relative group">
               <button className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Clubs
                 <ChevronDown className="w-4 h-4" />

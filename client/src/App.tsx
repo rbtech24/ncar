@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import GetStarted from "@/pages/get-started";
 import AthleteProfile from "@/pages/athlete-profile";
 import CoachProfile from "@/pages/coach-profile";
+import ParentProfile from "@/pages/parent-profile";
 import AthleteDirectory from "@/pages/athlete-directory";
 import NotFound from "@/pages/not-found";
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/get-started" component={GetStarted} />
       <Route path="/athlete-profile" component={AthleteProfile} />
       <Route path="/coach-profile" component={CoachProfile} />
+      <Route path="/parent-profile" component={ParentProfile} />
       <Route path="/athlete-directory" component={AthleteDirectory} />
       <Route component={NotFound} />
     </Switch>
