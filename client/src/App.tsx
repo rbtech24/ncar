@@ -8,6 +8,7 @@ import GetStarted from "@/pages/get-started";
 import AthleteProfile from "@/pages/athlete-profile";
 import CoachProfile from "@/pages/coach-profile";
 import ParentProfile from "@/pages/parent-profile";
+import CollegeProfile from "@/pages/college-profile";
 import AthleteDirectory from "@/pages/athlete-directory";
 import NotFound from "@/pages/not-found";
 
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/athlete-profile" component={AthleteProfile} />
       <Route path="/coach-profile" component={CoachProfile} />
       <Route path="/parent-profile" component={ParentProfile} />
+      <Route path="/college-profile" component={CollegeProfile} />
       <Route path="/athlete-directory" component={AthleteDirectory} />
       <Route component={NotFound} />
     </Switch>
