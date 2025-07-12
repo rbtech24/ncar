@@ -525,6 +525,62 @@ export default function AthleteProfile() {
           <div className="lg:col-span-3">
             <div className="space-y-6">
               
+              {/* Messaging Center */}
+              <Card className="bg-white shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                    <MessageCircle className="w-5 h-5" />
+                    Message Center
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                          <MessageCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm text-blue-900">8 New Messages</div>
+                          <div className="text-xs text-blue-600">From college coaches</div>
+                        </div>
+                      </div>
+                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                        <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                        <div className="flex-1">
+                          <div className="text-sm font-medium">Coach Williams</div>
+                          <div className="text-xs text-gray-500">Bryant University</div>
+                        </div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                        <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                        <div className="flex-1">
+                          <div className="text-sm font-medium">Coach Martinez</div>
+                          <div className="text-xs text-gray-500">Colorado State</div>
+                        </div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                        <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                        <div className="flex-1">
+                          <div className="text-sm font-medium">Coach Davis</div>
+                          <div className="text-xs text-gray-500">Boston College</div>
+                        </div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      </div>
+                    </div>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      View All Messages
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Verification Progress */}
               <Card className="bg-white shadow-sm">
                 <CardHeader>
