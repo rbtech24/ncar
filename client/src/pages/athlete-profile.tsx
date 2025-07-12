@@ -117,29 +117,55 @@ export default function AthleteProfile() {
     {
       id: 6,
       type: "video_highlight",
-      athlete: "Rod Burnett",
-      title: "2024 Rod Burnett Basketball Season Highlights",
-      views: 3247,
-      likes: 156,
-      comments: 34,
+      athlete: "Marcus Johnson",
+      title: "2024 Marcus Johnson Football Season Highlights",
+      views: 8432,
+      likes: 287,
+      comments: 56,
       timestamp: "5 days ago",
       thumbnail: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop",
-      duration: "3:24"
+      duration: "4:12",
+      sport: "Football",
+      gradYear: "2025"
     },
     {
       id: 7,
       type: "video_highlight",
-      athlete: "Rod Burnett",
-      title: "Defensive Highlights - Summer League",
-      views: 2156,
-      likes: 98,
-      comments: 23,
+      athlete: "Sarah Chen",
+      title: "State Championship Game Winning Shot",
+      views: 12456,
+      likes: 534,
+      comments: 89,
       timestamp: "1 week ago",
       thumbnail: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop",
-      duration: "2:18"
+      duration: "2:45",
+      sport: "Basketball",
+      gradYear: "2024"
     },
     {
       id: 8,
+      type: "peer_achievement",
+      athlete: "Tyler Rodriguez",
+      achievement: "Signed with University of Miami",
+      sport: "Baseball",
+      gradYear: "2024",
+      timestamp: "2 days ago",
+      likes: 156,
+      comments: 23
+    },
+    {
+      id: 9,
+      type: "peer_achievement", 
+      athlete: "Emma Thompson",
+      achievement: "Named Regional Player of the Year",
+      sport: "Soccer",
+      gradYear: "2025",
+      timestamp: "4 days ago",
+      likes: 89,
+      comments: 12
+    },
+    {
+      id: 10,
       type: "coach_message",
       college: "Colorado School of Mines",
       logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop",
@@ -372,7 +398,12 @@ export default function AthleteProfile() {
                             <User className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1">
-                            <div className="font-semibold text-gray-900 mb-1">{activity.athlete}</div>
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-semibold text-gray-900">{activity.athlete}</span>
+                              <Badge variant="outline" className="text-xs">
+                                {activity.sport} • {activity.gradYear}
+                              </Badge>
+                            </div>
                             <div className="text-sm text-gray-500">uploaded a video • {activity.timestamp}</div>
                           </div>
                         </div>
@@ -412,6 +443,47 @@ export default function AthleteProfile() {
                             <MessageCircle className="w-4 h-4" />
                             {activity.comments} comments
                           </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {activity.type === "peer_achievement" && (
+                      <div>
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                            <Trophy className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-semibold text-gray-900">{activity.athlete}</span>
+                              <Badge variant="outline" className="text-xs">
+                                {activity.sport} • {activity.gradYear}
+                              </Badge>
+                            </div>
+                            <div className="text-sm text-gray-500 mb-2">{activity.timestamp}</div>
+                            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Trophy className="w-5 h-5 text-green-600" />
+                                <span className="font-medium text-green-900">Achievement Unlocked!</span>
+                              </div>
+                              <p className="text-green-800 font-medium">{activity.achievement}</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-4 pt-4 border-t">
+                          <Button variant="ghost" size="sm">
+                            <Heart className="w-4 h-4 mr-2" />
+                            Congratulate ({activity.likes})
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <MessageCircle className="w-4 h-4 mr-2" />
+                            Comment ({activity.comments})
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Share2 className="w-4 h-4 mr-2" />
+                            Share
+                          </Button>
                         </div>
                       </div>
                     )}
@@ -552,22 +624,33 @@ export default function AthleteProfile() {
                 </CardContent>
               </Card>
 
-              {/* IMG Academy */}
+              {/* NCAR Success Stories */}
               <Card className="bg-white shadow-sm">
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold">IMG ACADEMY</CardTitle>
+                  <CardTitle className="text-lg font-semibold">NCAR Success Stories</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-center">
-                    <div className="w-full h-32 bg-gray-100 rounded-lg flex items-center justify-center mb-3">
-                      <img 
-                        src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=200&h=120&fit=crop" 
-                        alt="IMG Academy"
-                        className="w-full h-full object-cover rounded-lg"
-                      />
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                      <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                        <Trophy className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm text-green-900">247 Athletes Signed</div>
+                        <div className="text-xs text-green-600">This month on NCAR</div>
+                      </div>
                     </div>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Schedule Assessment
+                    <div className="flex items-center gap-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                      <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                        <Users className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm text-blue-900">1,200+ Active Coaches</div>
+                        <div className="text-xs text-blue-600">Recruiting on NCAR</div>
+                      </div>
+                    </div>
+                    <Button className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white">
+                      View Success Stories
                     </Button>
                   </div>
                 </CardContent>
