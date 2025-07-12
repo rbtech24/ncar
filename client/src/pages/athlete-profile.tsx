@@ -50,7 +50,7 @@ export default function AthleteProfile() {
     location: "Chicago, IL",
     height: "5'11\"",
     verticalJump: "9'8\"",
-    profileImage: "https://images.unsplash.com/photo-1494790108755-2616b332c3c7?w=300&h=300&fit=crop&crop=face",
+    profileImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
     gpa: 3.8,
     satScore: 1360,
     matchPercentage: 92,
