@@ -42,10 +42,9 @@ export default function Header() {
               </Link>
             </div>
             <div className="relative group">
-              <button className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+              <Link href="/coach-profile" className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Coaches
-                <ChevronDown className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
             <div className="relative group">
               <button className="flex items-center gap-1 text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium">
@@ -125,10 +124,13 @@ export default function Header() {
                           Athletes
                           <ChevronDown className="w-4 h-4" />
                         </button>
-                        <button className="flex items-center justify-between w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg">
+                        <Link 
+                          href="/coach-profile" 
+                          className="flex items-center justify-between w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
                           Coaches
-                          <ChevronDown className="w-4 h-4" />
-                        </button>
+                        </Link>
                         <button className="flex items-center justify-between w-full text-left text-neutral-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg">
                           Clubs
                           <ChevronDown className="w-4 h-4" />

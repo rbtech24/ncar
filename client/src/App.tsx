@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import GetStarted from "@/pages/get-started";
 import AthleteProfile from "@/pages/athlete-profile";
+import CoachProfile from "@/pages/coach-profile";
 import AthleteDirectory from "@/pages/athlete-directory";
 import NotFound from "@/pages/not-found";
 
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/get-started" component={GetStarted} />
       <Route path="/athlete-profile" component={AthleteProfile} />
+      <Route path="/coach-profile" component={CoachProfile} />
       <Route path="/athlete-directory" component={AthleteDirectory} />
       <Route component={NotFound} />
     </Switch>
