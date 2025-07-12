@@ -68,13 +68,19 @@ import {
   ServerCrash,
   Wifi as WifiIcon,
   Cloud,
-  CloudOff
+  CloudOff,
+  Home,
+  CreditCard,
+  Layers,
+  Menu,
+  X
 } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("overview");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
 
@@ -246,28 +252,101 @@ export default function AdminDashboard() {
     }
   };
 
+  // Sidebar menu items
+  const sidebarItems = [
+    { id: "overview", label: "Overview", icon: Home },
+    { id: "users", label: "Users", icon: Users },
+    { id: "content", label: "Content", icon: Video },
+    { id: "ai", label: "AI Tools", icon: Cpu },
+    { id: "api", label: "API", icon: Globe },
+    { id: "payments", label: "Payments", icon: CreditCard },
+    { id: "compliance", label: "Compliance", icon: Shield },
+    { id: "analytics", label: "Analytics", icon: BarChart3 },
+    { id: "financial", label: "Financial", icon: DollarSign },
+    { id: "settings", label: "Settings", icon: Settings },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      
-      <div className="container mx-auto px-4 py-6">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">System Administration</h1>
-            <p className="text-gray-600">Manage and monitor the entire recruiting platform</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm">
-              <Download className="w-4 h-4 mr-2" />
-              Export Data
-            </Button>
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Settings className="w-4 h-4 mr-2" />
-              Settings
+      <div className="flex">
+        {/* Sidebar */}
+        <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:mt-16`}>
+          <div className="flex items-center justify-between h-16 px-4 border-b bg-white">
+            <h2 className="text-lg font-semibold text-gray-900">Admin Panel</h2>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden"
+            >
+              <X className="w-5 h-5" />
             </Button>
           </div>
+          <nav className="mt-4">
+            <div className="px-2 space-y-1">
+              {sidebarItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setActiveTab(item.id);
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                      activeTab === item.id
+                        ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5 mr-3" />
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
+          </nav>
         </div>
+
+        {/* Overlay for mobile */}
+        {sidebarOpen && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
+        {/* Main content */}
+        <div className="flex-1 lg:ml-0">
+          <div className="container mx-auto px-4 py-6">
+            {/* Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div className="flex items-center">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setSidebarOpen(true)}
+                  className="lg:hidden mr-4"
+                >
+                  <Menu className="w-5 h-5" />
+                </Button>
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">System Administration</h1>
+                  <p className="text-gray-600">Manage and monitor the entire recruiting platform</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button variant="outline" size="sm">
+                  <Download className="w-4 h-4 mr-2" />
+                  Export Data
+                </Button>
+                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                  <Settings className="w-4 h-4 mr-2" />
+                  Settings
+                </Button>
+              </div>
+            </div>
 
         {/* System Alerts */}
         {systemAlerts.filter(alert => !alert.resolved).length > 0 && (
@@ -311,22 +390,10 @@ export default function AdminDashboard() {
           </div>
         )}
 
-        {/* Tabs */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 lg:grid-cols-10">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="users">Users</TabsTrigger>
-            <TabsTrigger value="content">Content</TabsTrigger>
-            <TabsTrigger value="ai">AI Tools</TabsTrigger>
-            <TabsTrigger value="api">API</TabsTrigger>
-            <TabsTrigger value="payments">Payments</TabsTrigger>
-            <TabsTrigger value="compliance">Compliance</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="financial">Financial</TabsTrigger>
-            <TabsTrigger value="settings">Settings</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="overview" className="space-y-6">
+            {/* Content Area */}
+            <div className="space-y-6">
+              {activeTab === "overview" && (
+                <div className="space-y-6">
             {/* Key Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card>
@@ -485,9 +552,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+                </div>
+              )}
 
-          <TabsContent value="users" className="space-y-6">
+              {activeTab === "users" && (
+                <div className="space-y-6">
             {/* User Management Controls */}
             <Card>
               <CardHeader>
@@ -639,9 +708,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="compliance" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "compliance" && (
+                <div className="space-y-6">
             {/* Compliance Overview */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card>
@@ -717,9 +788,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="content" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "content" && (
+                <div className="space-y-6">
             {/* Content Management */}
             <Card>
               <CardHeader>
@@ -789,9 +862,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="api" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "api" && (
+                <div className="space-y-6">
             {/* API Management */}
             <Card>
               <CardHeader>
@@ -885,9 +960,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="payments" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "payments" && (
+                <div className="space-y-6">
             {/* Payment Management */}
             <Card>
               <CardHeader>
@@ -1034,9 +1111,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="ai" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "ai" && (
+                <div className="space-y-6">
             {/* AI Tools Management */}
             <Card>
               <CardHeader>
@@ -1130,9 +1209,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="analytics" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "analytics" && (
+                <div className="space-y-6">
             {/* Analytics Overview */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card>
@@ -1192,9 +1273,11 @@ export default function AdminDashboard() {
                 </CardContent>
               </Card>
             </div>
-          </TabsContent>
-
-          <TabsContent value="system" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "system" && (
+                <div className="space-y-6">
             {/* System Health */}
             <Card>
               <CardHeader>
@@ -1242,9 +1325,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="financial" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "financial" && (
+                <div className="space-y-6">
             {/* Financial Overview */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card>
@@ -1375,9 +1460,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="settings" className="space-y-6">
+                </div>
+              )}
+              
+              {activeTab === "settings" && (
+                <div className="space-y-6">
             {/* Platform Settings */}
             <Card>
               <CardHeader>
@@ -1507,8 +1594,11 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-        </Tabs>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
       
       <Footer />
