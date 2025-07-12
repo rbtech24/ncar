@@ -1,0 +1,140 @@
+Great question—this is **the** most important page for your recruiting platform, since it’s what coaches and recruiters will see first. The profile should look clean, professional, and have clear calls-to-action. Here’s a breakdown of **what it should look like and the must-have features**:
+
+---
+
+## Athlete Profile Page: Layout & Features
+
+### **Above the Fold (Top Section)**
+
+* **Profile Picture** (professional headshot)
+* **Name, Grad Year, Sport, Position(s)**
+* **High School / Club Team**
+* **Location** (City, State)
+* **Contact Buttons:**
+
+  * Message Athlete (platform DM)
+  * Share Profile (link/copy)
+  * Download Resume (PDF)
+* **Featured Video**
+
+  * “Pin” one highlight or intro video (YouTube, Hudl, or upload)
+
+---
+
+### **Stats & Bio Section**
+
+* **Quick Stats:**
+
+  * Height, Weight, GPA, Test Scores (SAT/ACT), Academic Honors
+  * Athletic Measurables (40yd dash, vertical, wingspan, etc)
+* **Player Bio/About Me:**
+
+  * Short intro paragraph (editable by athlete)
+  * “Why I want to play at the next level” or similar prompt
+
+---
+
+### **Media Gallery**
+
+* **Highlight Videos**
+
+  * Embed multiple clips (YouTube, Hudl, uploaded videos)
+* **Photos**
+
+  * Action photos, awards, etc.
+
+---
+
+### **Athletic Information**
+
+* **Primary & Secondary Positions**
+* **Stats by Season** (table: Year, Team, Stats)
+* **Coach Evaluations / Endorsements**
+
+  * Option for HS/club coaches to add written recs or endorsements
+
+---
+
+### **Academic Info**
+
+* **School Info**
+* **Current GPA**
+* **Test Scores**
+* **Coursework/Advanced Classes**
+* **Academic Honors**
+
+---
+
+### **Achievements & Awards**
+
+* **Athletic Awards:**
+
+  * All-Conference, MVP, etc.
+* **Academic Awards**
+
+---
+
+### **Schedule & Events**
+
+* **Upcoming Games/Events:**
+
+  * Date, opponent, location, time
+* **Camps/Showcases Attending**
+
+---
+
+### **Contact & Social**
+
+* **Parent/Guardian Contact Info** (email/phone—private to verified coaches)
+* **High School/Club Coach Contact** (private to coaches)
+* **Social Media Links:**
+
+  * Twitter, Instagram, YouTube, Hudl, etc.
+
+---
+
+### **Recruiting Status & Offers**
+
+* **College Interests/Offers (optional)**
+
+  * Committed? (Yes/No, where)
+  * List schools that have offered/contacted (if public)
+
+---
+
+### **Calls to Action**
+
+* **Request Transcript** (button, for coaches)
+* **Schedule Call/Visit** (request via calendar or email)
+* **Bookmark/Add to Favorites** (for coaches)
+
+---
+
+### **Mobile Friendly & Print Version**
+
+* Should look great on mobile.
+* Downloadable/printable PDF resume version.
+
+---
+
+## **Other Nice-to-Have Features**
+
+* **AI Video Analysis:** Automatic tagging of highlights (if you have the tech)
+* **Notifications:** When a coach views/downloads profile
+* **Profile Completion Meter:** Nudges to fill out all fields
+* **Privacy Settings:** Athlete controls what’s public/hidden
+* **Analytics:** Track profile views, video plays, etc.
+
+---
+
+## **Design Example:**
+
+**Left column:** Photo, quick stats, contact
+**Main column:** Video, bio, stats, academic, schedule, achievements
+**Right sidebar (or tabs):** Coach contact, social links, endorsements, offers
+
+---
+
+Want a **wireframe** or sample UI code in React/Tailwind?
+Or a checklist for onboarding?
+Let me know how detailed you want to go!
